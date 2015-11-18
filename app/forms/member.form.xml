@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+    <tnotebook id="0">
+        <class>TNotebook</class>
+        <name>notebook1</name>
+        <x>5</x>
+        <y>5</y>
+        <width>540</width>
+        <height>351</height>
+        <pages>
+            <tpanel id="1" tab="Members">
+                <tlabel id="0">
+                    <class>TLabel</class>
+                    <name>code_label</name>
+                    <x>20</x>
+                    <y>20</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Code</value>
+                </tlabel>
+                <tentry id="1">
+                    <class>TEntry</class>
+                    <name>id</name>
+                    <x>105</x>
+                    <y>15</y>
+                    <value></value>
+                    <mask></mask>
+                    <width>75</width>
+                    <maxlen>0</maxlen>
+                    <editable>0</editable>
+                    <tip></tip>
+                    <required></required>
+                </tentry>
+                <tlabel id="2">
+                    <class>TLabel</class>
+                    <name>name_label</name>
+                    <x>20</x>
+                    <y>55</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Name</value>
+                </tlabel>
+                <tentry id="3">
+                    <class>TEntry</class>
+                    <name>name</name>
+                    <x>105</x>
+                    <y>50</y>
+                    <value></value>
+                    <mask></mask>
+                    <width>370</width>
+                    <maxlen>0</maxlen>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tentry>
+                <tlabel id="4">
+                    <class>TLabel</class>
+                    <name>address_label</name>
+                    <x>20</x>
+                    <y>90</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Address</value>
+                </tlabel>
+                <tentry id="5">
+                    <class>TEntry</class>
+                    <name>address</name>
+                    <x>105</x>
+                    <y>85</y>
+                    <value></value>
+                    <mask></mask>
+                    <width>370</width>
+                    <maxlen>0</maxlen>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tentry>
+                <tseekbutton id="6">
+                    <class>TSeekButton</class>
+                    <name>city_id</name>
+                    <database>library</database>
+                    <model>City</model>
+                    <display>name</display>
+                    <receiver>city_name</receiver>
+                    <x>105</x>
+                    <y>120</y>
+                    <width>40</width>
+                    <editable>1</editable>
+                </tseekbutton>
+                <tlabel id="7">
+                    <class>TLabel</class>
+                    <name>city_label</name>
+                    <x>20</x>
+                    <y>125</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>City</value>
+                </tlabel>
+                <tentry id="8">
+                    <class>TEntry</class>
+                    <name>city_name</name>
+                    <x>195</x>
+                    <y>120</y>
+                    <value></value>
+                    <mask></mask>
+                    <width>280</width>
+                    <maxlen>0</maxlen>
+                    <editable>0</editable>
+                    <tip></tip>
+                    <required></required>
+                </tentry>
+                <tlabel id="9">
+                    <class>TLabel</class>
+                    <name>category_label</name>
+                    <x>20</x>
+                    <y>160</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Category</value>
+                </tlabel>
+                <tdbcombo id="10">
+                    <class>TDBCombo</class>
+                    <name>category_id</name>
+                    <database>library</database>
+                    <model>Category</model>
+                    <key>id</key>
+                    <display>description</display>
+                    <x>105</x>
+                    <y>155</y>
+                    <width>120</width>
+                    <tip></tip>
+                </tdbcombo>
+                <tlabel id="11">
+                    <class>TLabel</class>
+                    <name>birthdate_label</name>
+                    <x>250</x>
+                    <y>160</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Birthdate</value>
+                </tlabel>
+                <tdate id="12">
+                    <class>TDate</class>
+                    <name>birthdate</name>
+                    <x>345</x>
+                    <y>155</y>
+                    <value></value>
+                    <mask>dd/mm/yyyy</mask>
+                    <width>100</width>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tdate>
+                <tlabel id="13">
+                    <class>TLabel</class>
+                    <name>phone_label</name>
+                    <x>20</x>
+                    <y>195</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Phone</value>
+                </tlabel>
+                <tentry id="14">
+                    <class>TEntry</class>
+                    <name>phone_number</name>
+                    <x>105</x>
+                    <y>190</y>
+                    <value></value>
+                    <mask></mask>
+                    <width>120</width>
+                    <maxlen>0</maxlen>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tentry>
+                <tlabel id="15">
+                    <class>TLabel</class>
+                    <name>email_label</name>
+                    <x>250</x>
+                    <y>195</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>E-mail</value>
+                </tlabel>
+                <tentry id="16">
+                    <class>TEntry</class>
+                    <name>email</name>
+                    <x>345</x>
+                    <y>190</y>
+                    <value></value>
+                    <mask></mask>
+                    <width>120</width>
+                    <maxlen>0</maxlen>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tentry>
+                <tlabel id="17">
+                    <class>TLabel</class>
+                    <name>login_label</name>
+                    <x>20</x>
+                    <y>230</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Login</value>
+                </tlabel>
+                <tentry id="18">
+                    <class>TEntry</class>
+                    <name>login</name>
+                    <x>105</x>
+                    <y>225</y>
+                    <value></value>
+                    <mask></mask>
+                    <width>120</width>
+                    <maxlen>0</maxlen>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tentry>
+                <tlabel id="19">
+                    <class>TLabel</class>
+                    <name>password_label</name>
+                    <x>250</x>
+                    <y>230</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Password</value>
+                </tlabel>
+                <tpassword id="20">
+                    <class>TPassword</class>
+                    <name>password</name>
+                    <x>345</x>
+                    <y>225</y>
+                    <value></value>
+                    <width>120</width>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tpassword>
+                <tlabel id="21">
+                    <class>TLabel</class>
+                    <name>registration_label</name>
+                    <x>20</x>
+                    <y>265</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Registration</value>
+                </tlabel>
+                <tdate id="22">
+                    <class>TDate</class>
+                    <name>registration</name>
+                    <x>105</x>
+                    <y>260</y>
+                    <value></value>
+                    <mask>dd/mm/yyyy</mask>
+                    <width>100</width>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tdate>
+                <tlabel id="23">
+                    <class>TLabel</class>
+                    <name>expiration_label</name>
+                    <x>250</x>
+                    <y>265</y>
+                    <color>#000000</color>
+                    <size>10</size>
+                    <style></style>
+                    <value>Expiration</value>
+                </tlabel>
+                <tdate id="24">
+                    <class>TDate</class>
+                    <name>expiration</name>
+                    <x>345</x>
+                    <y>260</y>
+                    <value></value>
+                    <mask>dd/mm/yyyy</mask>
+                    <width>100</width>
+                    <editable>1</editable>
+                    <tip></tip>
+                    <required></required>
+                </tdate>
+            </tpanel>
+        </pages>
+    </tnotebook>
+    <tbutton id="1">
+        <class>TButton</class>
+        <name>save_button</name>
+        <x>10</x>
+        <y>365</y>
+        <value>Save</value>
+        <icon>ico_save.png</icon>
+        <action>onSave</action>
+        <template>save.php</template>
+    </tbutton>
+    <tbutton id="2">
+        <class>TButton</class>
+        <name>new_button</name>
+        <x>115</x>
+        <y>365</y>
+        <value>New</value>
+        <icon>ico_edit.png</icon>
+        <action>onEdit</action>
+        <template>edit.php</template>
+    </tbutton>
+</form>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Adianti Framework :: Library</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    {LIBRARIES}
+    {HEAD}
+    <script type="text/javascript">
+    $('[generator="adianti"]').live('click', function()
+    {
+       __adianti_load_page($(this).attr('href'));
+       return false;
+    });
+    
+    window.onpopstate = function(stackstate)
+    {
+    	if (stackstate.state)
+    	{
+    		__adianti_load_page_no_register(stackstate.state.url);
+    	}
+    };
+    
+    $(function() {
+        $( document ).tooltip();
+    });
+    </script>
+</head>
+<body>
+    <div class="adianti_container">
+        <div class="header">
+            <div class="thin_bar">
+                &nbsp;
+            </div>
+            <div class="header_content">
+                <div class="logo1" style="position:relative; width:32%">
+                    <img src="app/templates/theme1/images/framework.png">
+                </div>
+                
+                <div class="title" style="position:relative; float:left;width:32%">
+                    Adianti Library
+                </div>
+                <div class="logo2" style="position:relative; width:32%">
+                    <img src="app/templates/theme1/images/adianti.png">
+                </div>
+
+            </div>
+            
+            <div class="header_bottom" style="clear:both"></div>
+        </div>
+        
+        <div class="body">
+            <div class="panel">
+                <div style="text-align:right"> Hello {login}</div>
+                <h2>_t{Cataloging}</h2>
+                <ul>
+                    <li><a generator="adianti" href="index.php?class=BookList">_t{Books}</a></li>
+                    <li><a generator="adianti" href="index.php?class=CollectionFormList">_t{Collections}</a></li>
+                    <li><a generator="adianti" href="index.php?class=ClassificationFormList">_t{Classifications}</a></li>
+                    <li><a generator="adianti" href="index.php?class=SubjectList">_t{Subjects}</a></li>
+                    <li><a generator="adianti" href="index.php?class=AuthorList">_t{Authors}</a></li>
+                    <li><a generator="adianti" href="index.php?class=PublisherList">_t{Publishers}</a></li>
+                    <li><a generator="adianti" href="index.php?class=StatusFormList">_t{Status}</a></li>
+                </ul>
+                <h2>_t{Members}</h2>
+                <ul>
+                    <li><a generator="adianti" href="index.php?class=MemberList">_t{Members}</a></li>
+                    <li><a generator="adianti" href="index.php?class=CategoryFormList">_t{Categories}</a></li>
+                    <li><a generator="adianti" href="index.php?class=CityList">_t{Cities}</a></li>
+                </ul>
+                <h2>_t{Circulation}</h2>
+                <ul>
+                    <li><a generator="adianti" href="index.php?class=CheckInForm">_t{Check in}</a></li>
+                    <li><a generator="adianti" href="index.php?class=CheckOutForm">_t{Check out}</a></li>
+                </ul>
+                <h2>_t{Reports}</h2>
+                <ul>
+                    <li><a generator="adianti" href="index.php?class=LoanReport">_t{Loans}</a></li>
+                    <li><a generator="adianti" href="index.php?class=MemberReport">_t{Members}</a></li>
+                    <li><a generator="adianti" href="index.php?class=BookReport">_t{Books}</a></li>
+                    <li><a generator="adianti" href="index.php?class=LoginForm&method=onLogout&static=1">Logout</a></li>
+                </ul>
+            </div>
+            
+            <div id="adianti_div_content" class="content"></div>
+            <div id="adianti_online_content"></div>
+            <div id="pageboth"><br></div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <script type="text/javascript">
+    //#javascript_placeholder#
+    </script>
+</body>
+</html>
