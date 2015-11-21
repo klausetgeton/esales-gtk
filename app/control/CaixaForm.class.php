@@ -43,9 +43,6 @@ class CaixaForm extends TStandardForm
         $this->form->addQuickField('Saldo', $saldo_inicial,  200);
         $this->form->addQuickField('Filial', $filial_id,  100);
 
-
-
-
         
         // create the form actions
         $this->form->addQuickAction(_t('Save'), new TAction(array($this, 'onSave')), 'ico_save.png');

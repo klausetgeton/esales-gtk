@@ -1,14 +1,70 @@
 <menu>
-    <menuitem label='Start here'>
+    <menuitem label='Administração'>
         <menu>
-            <menuitem label='Welcome'>
-                <menu>
-                    <menuitem label='Welcome page'>
-                        <icon>app/images/ico_welcome.png</icon>
-                        <action>WelcomeView</action>
-                    </menuitem>
-                </menu>
+            <menuitem label='Programas'>
+                <icon>fa:file-code-o fa-fw green</icon>
+                <action>SystemProgramList</action>
             </menuitem>
-        </menu>
-    </menuitem>
-</menu>
+            <menuitem label='Grupos'>
+                <icon>fa:users fa-fw blue</icon>
+                <action>SystemGroupList</action>
+            </menuitem>
+            <menuitem label='Usuários'>
+                <icon>fa:user fa-fw blue</icon>
+                <action>SystemUserList</action>
+            </menuitem>
+            <menuitem label='Configurações'>
+                <icon>fa:user fa-fw blue</icon>
+                <action>ConfigFormList</action>
+            </menuitem>
+            <menuitem label='Caixa'>
+                <icon>fa:user fa-fw blue</icon>
+                <action>CaixaForm</action>
+            </menuitem>
+            <menuitem label='CompraForm'>
+                <action>CompraForm</action>
+            </menuitem>
+            <menuitem label='Filial'>
+                <action>Filial</action>
+            </menuitem>
+            <menuitem label='MarcaForm'>
+                <action>MarcaForm</action>
+            </menuitem>
+            <menuitem label='PessoaForm'>
+                <action>PessoaForm</action>
+            </menuitem>
+            <menuitem label='ProdutoForm'>
+                <action>ProdutoForm</action>
+            </menuitem>
+            <menuitem label='VendaForm'>
+                <action>VendaForm</action>
+            </menuitem>
+            </menu>
+        </menuitem>
+
+        <menuitem label='Common pages'>
+            <menu>
+                <menuitem label='Common page 1'>
+                    <icon></icon>
+                    <action>CommonPage</action>
+                </menuitem>
+                <menuitem label='Common page 2'>
+                    <icon></icon>
+                    <action>CommonPage</action>
+                </menuitem>
+                <menuitem label='Common page 3'>
+                    <icon></icon>
+                    <action>CommonPage</action>
+                </menuitem>
+            </menu>
+        </menuitem>
+
+        <menuitem label='Logout'>
+            <menu>
+                <menuitem label='Logout'>
+                    <icon></icon>
+                    <action>LoginForm#method=onLogout#static=1</action>
+                </menuitem>
+            </menu>
+        </menuitem>
+    </menu>

@@ -11,6 +11,11 @@ class TApplication extends AdiantiCoreApplication
         $this->content = new GtkFixed;
 
         $vbox = new GtkVBox;
+
+        $scroll = new GtkScrolledWindow;
+        $scroll->set_policy(GTK::POLICY_AUTOMATIC, GTK::POLICY_ALWAYS);
+        $scroll->set_size_request(200, -1);
+
         $vbox->pack_start(GtkImage::new_from_file('app/images/pageheader.png'), false, false);
         $MenuBar = TMenuBar::newFromXML('menu.xml');
         
