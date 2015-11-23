@@ -35,18 +35,28 @@ class ProdutoForm extends TStandardForm
         $preco_venda                    = new TEntry('preco_venda');
         $marca_id                       = new TEntry('marca_id');
 
+        $marca_id                      = new TSeekButton('marca_id');
+        $marca_name                    = new TEntry('marca_name');
+
+        $obj = new TStandardSeek;
+        $action = new TAction(array($obj, 'onSetup'));
+        $action->setParameter('database',      'esales');
+        $action->setParameter('parent',        'form_Produto');
+        $action->setParameter('model',         'Marca');
+        $action->setParameter('display_field', 'descricao');
+        $action->setParameter('receive_key',   'marca_id');
+        $action->setParameter('receive_field', 'marca_name');
+        $marca_id->setAction($action);
+
 
         // add the fields
-        $this->form->addQuickField('id', $id,  100);
-        $this->form->addQuickField('descricao', $descricao,  200);
-        $this->form->addQuickField('preco_compra', $preco_compra,  200);
-        $this->form->addQuickField('preco_venda', $preco_venda,  200);
-        $this->form->addQuickField('marca_id', $marca_id,  100);
+        $this->form->addQuickField('Codigo', $id,  100);
+        $this->form->addQuickField('Descricao', $descricao,  200);
+        $this->form->addQuickField('Preco compra', $preco_compra,  200);
+        $this->form->addQuickField('Preco venda', $preco_venda,  200);
+        $this->form->addQuickFields('Marca', array($marca_id, $marca_name));
 
 
-
-
-        
         // create the form actions
         $this->form->addQuickAction(_t('Save'), new TAction(array($this, 'onSave')), 'ico_save.png');
         $this->form->addQuickAction(_t('New'),  new TAction(array($this, 'onEdit')), 'ico_new.png');

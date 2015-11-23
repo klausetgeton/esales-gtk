@@ -13,49 +13,32 @@
                 <icon>fa:user fa-fw blue</icon>
                 <action>SystemUserList</action>
             </menuitem>
-            <menuitem label='Configurações'>
+       <!--      <menuitem label='Configurações'>
                 <icon>fa:user fa-fw blue</icon>
                 <action>ConfigFormList</action>
-            </menuitem>
+            </menuitem> -->
             <menuitem label='Caixa'>
                 <icon>fa:user fa-fw blue</icon>
-                <action>CaixaForm</action>
+                <action>CaixaList</action>
             </menuitem>
-            <menuitem label='CompraForm'>
+            <menuitem label='Compra'>
                 <action>CompraForm</action>
             </menuitem>
-            <menuitem label='Filial'>
-                <action>Filial</action>
-            </menuitem>
-            <menuitem label='MarcaForm'>
-                <action>MarcaForm</action>
-            </menuitem>
-            <menuitem label='PessoaForm'>
-                <action>PessoaForm</action>
-            </menuitem>
-            <menuitem label='ProdutoForm'>
-                <action>ProdutoForm</action>
-            </menuitem>
-            <menuitem label='VendaForm'>
+            <menuitem label='Venda'>
                 <action>VendaForm</action>
             </menuitem>
-            </menu>
-        </menuitem>
-
-        <menuitem label='Common pages'>
-            <menu>
-                <menuitem label='Common page 1'>
-                    <icon></icon>
-                    <action>CommonPage</action>
-                </menuitem>
-                <menuitem label='Common page 2'>
-                    <icon></icon>
-                    <action>CommonPage</action>
-                </menuitem>
-                <menuitem label='Common page 3'>
-                    <icon></icon>
-                    <action>CommonPage</action>
-                </menuitem>
+            <menuitem label='Filial'>
+                <action>FilialForm</action>
+            </menuitem>
+            <menuitem label='Marca'>
+                <action>MarcaForm</action>
+            </menuitem>
+            <menuitem label='Pessoa'>
+                <action>PessoaForm</action>
+            </menuitem>
+            <menuitem label='Produto'>
+                <action>ProdutoForm</action>
+            </menuitem>
             </menu>
         </menuitem>
 

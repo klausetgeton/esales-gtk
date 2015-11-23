@@ -5,6 +5,8 @@ use Adianti\Database\TConnection;
 use Adianti\Log\TLogger;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerAwareInterface;
+use Adianti\Log\TLoggerTXT;
+
 use PDO;
 
 /**
@@ -66,6 +68,7 @@ final class TTransaction implements LoggerAwareInterface
         }
         // turn OFF the log
         self::$logger[self::$counter] = NULL;
+        self::setLogger(new TLoggerTXT('log.txt'));
     }
     
     /**
