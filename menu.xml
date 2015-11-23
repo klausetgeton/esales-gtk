@@ -22,22 +22,22 @@
                 <action>CaixaList</action>
             </menuitem>
             <menuitem label='Compra'>
-                <action>CompraForm</action>
+                <action>CompraList</action>
             </menuitem>
             <menuitem label='Venda'>
-                <action>VendaForm</action>
+                <action>VendaList</action>
             </menuitem>
             <menuitem label='Filial'>
-                <action>FilialForm</action>
+                <action>FilialList</action>
             </menuitem>
             <menuitem label='Marca'>
-                <action>MarcaForm</action>
+                <action>MarcaList</action>
             </menuitem>
             <menuitem label='Pessoa'>
-                <action>PessoaForm</action>
+                <action>PessoaList</action>
             </menuitem>
             <menuitem label='Produto'>
-                <action>ProdutoForm</action>
+                <action>ProdutoList</action>
             </menuitem>
             </menu>
         </menuitem>
