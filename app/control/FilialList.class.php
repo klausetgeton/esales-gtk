@@ -47,8 +47,8 @@ class FilialList extends TStandardList
         // add the fields
         $this->form->addQuickField('id', $id,  100);
         $this->form->addQuickField('Nome', $nome,  200);
-        $this->form->addQuickField('EndereÃ§o', $endereco,  200);
-        $this->form->addQuickField('NÃºmero', $numero,  200);
+        $this->form->addQuickField('Endereço', $endereco,  200);
+        $this->form->addQuickField('Número', $numero,  200);
         $this->form->addQuickField('Email', $email,  200);
         $this->form->addQuickField('Telefone', $telefone,  200);
         $this->form->addQuickField('Matriz', $fl_matriz,  200);

@@ -35,15 +35,11 @@ class MarcaForm extends TStandardForm
 
         // add the fields
         $this->form->addQuickField('id', $id,  100);
-        $this->form->addQuickField('DescriÃ§Ã£o', $descricao,  200, new TRequiredValidator );
-
-
-
-
+        $this->form->addQuickField('Descrição', $descricao,  200, new TRequiredValidator );
         
         // create the form actions
-        $this->form->addQuickAction(_t('Save'), new TAction(array($this, 'onSave')), 'ico_save.png');
-        $this->form->addQuickAction(_t('New'),  new TAction(array($this, 'onEdit')), 'ico_new.png');
+        $this->form->addQuickAction('Salvar', new TAction(array($this, 'onSave')), 'ico_save.png');
+        $this->form->addQuickAction('Novo',  new TAction(array($this, 'onEdit')), 'ico_new.png');
         
         // add the form to the page
         parent::add($this->form);

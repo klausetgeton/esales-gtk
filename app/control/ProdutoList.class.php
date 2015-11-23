@@ -63,10 +63,10 @@ class ProdutoList extends TStandardList
         
 
         // creates the datagrid columns
-        $id = $this->datagrid->addQuickColumn('CÃ³digo', 'id', 'right', 100);
-        $descricao = $this->datagrid->addQuickColumn('DescriÃ§Ã£o', 'descricao', 'left', 200);
-        $preco_compra = $this->datagrid->addQuickColumn('PreÃ§o de compra', 'preco_compra', 'left', 200);
-        $preco_venda = $this->datagrid->addQuickColumn('PreÃ§o de venda', 'preco_venda', 'left', 200);
+        $id = $this->datagrid->addQuickColumn('Código', 'id', 'right', 100);
+        $descricao = $this->datagrid->addQuickColumn('Descrição', 'descricao', 'left', 200);
+        $preco_compra = $this->datagrid->addQuickColumn('Preço de compra', 'preco_compra', 'left', 200);
+        $preco_venda = $this->datagrid->addQuickColumn('Preço de venda', 'preco_venda', 'left', 200);
         $marca_id = $this->datagrid->addQuickColumn('Marca', 'marca_id', 'right', 100);
 
         

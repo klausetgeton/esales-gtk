@@ -82,8 +82,8 @@ class PessoaList extends TStandardList
         $nome = $this->datagrid->addQuickColumn('Nome', 'nome', 'left', 200);
         $telefone = $this->datagrid->addQuickColumn('Telefone', 'telefone', 'left', 200);
         $email = $this->datagrid->addQuickColumn('Email', 'email', 'left', 200);
-        $endereco = $this->datagrid->addQuickColumn('EndereÃ§o', 'endereco', 'left', 200);
-        $numero = $this->datagrid->addQuickColumn('NÃºmero', 'numero', 'left', 200);
+        $endereco = $this->datagrid->addQuickColumn('Endereço', 'endereco', 'left', 200);
+        $numero = $this->datagrid->addQuickColumn('Número', 'numero', 'left', 200);
         $cidade_id = $this->datagrid->addQuickColumn('Cidade', 'cidade_id', 'right', 100);
         $cep = $this->datagrid->addQuickColumn('CEP', 'cep', 'left', 200);
         $cpf_cnpj = $this->datagrid->addQuickColumn('Cpf/Cnpj', 'cpf_cnpj', 'right', 100);

@@ -42,7 +42,7 @@ class CaixaList extends TStandardList
 
         // add the fields
         $this->form->addQuickField('id', $id,  100);
-        $this->form->addQuickField('DescriÃ§Ã£o', $descricao,  200);
+        $this->form->addQuickField('Descrição', $descricao,  200);
         $this->form->addQuickField('Pessoa', $pessoa_id,  100);
         $this->form->addQuickField('Saldo', $saldo_inicial,  200);
         $this->form->addQuickField('Filial', $filial_id,  100);
@@ -64,7 +64,7 @@ class CaixaList extends TStandardList
 
         // creates the datagrid columns
         $id = $this->datagrid->addQuickColumn('id', 'id', 'right', 100);
-        $descricao = $this->datagrid->addQuickColumn('DescriÃ§Ã£o', 'descricao', 'left', 200);
+        $descricao = $this->datagrid->addQuickColumn('Descrição', 'descricao', 'left', 200);
         $pessoa_id = $this->datagrid->addQuickColumn('Pessoa', 'pessoa_id', 'right', 100);
         $saldo_inicial = $this->datagrid->addQuickColumn('Saldo', 'saldo_inicial', 'left', 200);
         $filial_id = $this->datagrid->addQuickColumn('Filial', 'filial_id', 'right', 100);
