@@ -92,6 +92,7 @@ class SystemUserForm extends TPage
         $cell = $row->addCell($frame_groups);
         $cell->colspan = 2;
         
+        $row=$table->addRow();
         $cell = $row->addCell($frame_programs);
         $cell->colspan = 2;
 

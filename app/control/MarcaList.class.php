@@ -20,8 +20,8 @@ class MarcaList extends TStandardList
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Marca');   // defines the active record
         parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', 'like'); // add a filter field
-        parent::addFilterField('descricao', 'like'); // add a filter field
+        parent::addFilterField('id', '='); // add a filter field
+        parent::addFilterField('descricao', 'ilike'); // add a filter field
         
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Marca');
