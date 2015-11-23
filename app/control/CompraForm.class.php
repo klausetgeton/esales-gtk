@@ -38,7 +38,7 @@ class CompraForm extends TStandardForm
 
 
         // add the fields
-        $this->form->addQuickField('CÃ³digo', $id,  100);
+        $this->form->addQuickField('Código', $id,  100);
         $this->form->addQuickField('Vendedor', $vendedor_id,  100, new TRequiredValidator );
         $this->form->addQuickField('Cliente', $cliente_id,  100, new TRequiredValidator );
         $this->form->addQuickField('Filial', $filial_id,  100, new TRequiredValidator );

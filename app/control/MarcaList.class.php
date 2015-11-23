@@ -36,7 +36,7 @@ class MarcaList extends TStandardList
 
         // add the fields
         $this->form->addQuickField('id', $id,  100);
-        $this->form->addQuickField('DescriÃ§Ã£o', $descricao,  200);
+        $this->form->addQuickField('Descrição', $descricao,  200);
 
 
 
@@ -55,7 +55,7 @@ class MarcaList extends TStandardList
 
         // creates the datagrid columns
         $id = $this->datagrid->addQuickColumn('id', 'id', 'right', 100);
-        $descricao = $this->datagrid->addQuickColumn('DescriÃ§Ã£o', 'descricao', 'left', 200);
+        $descricao = $this->datagrid->addQuickColumn('Descrição', 'descricao', 'left', 200);
 
         
         // create the datagrid actions

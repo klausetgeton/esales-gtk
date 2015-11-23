@@ -37,8 +37,8 @@ class CaixaForm extends TStandardForm
 
 
         // add the fields
-        $this->form->addQuickField('CÃ³digo', $id,  100);
-        $this->form->addQuickField('DescriÃ§Ã£o', $descricao,  200, new TRequiredValidator );
+        $this->form->addQuickField('Código', $id,  100);
+        $this->form->addQuickField('Descrição', $descricao,  200, new TRequiredValidator );
         $this->form->addQuickField('Pessoa', $pessoa_id,  100, new TRequiredValidator );
         $this->form->addQuickField('Saldo', $saldo_inicial,  200);
         $this->form->addQuickField('Filial', $filial_id,  100);
