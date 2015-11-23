@@ -52,8 +52,8 @@ class FilialForm extends TStandardForm
 
         
         // create the form actions
-        $this->form->addQuickAction(_t('Save'), new TAction(array($this, 'onSave')), 'ico_save.png');
-        $this->form->addQuickAction(_t('New'),  new TAction(array($this, 'onEdit')), 'ico_new.png');
+        $this->form->addQuickAction('Salvar', new TAction(array($this, 'onSave')), 'ico_save.png');
+        $this->form->addQuickAction('Novo',  new TAction(array($this, 'onEdit')), 'ico_new.png');
         
         // add the form to the page
         parent::add($this->form);

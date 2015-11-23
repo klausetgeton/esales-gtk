@@ -26,7 +26,7 @@ class SystemGroupList extends TPage
         $table = new TTable;
         $table->style = 'width:100%';
         
-        $table->addRowSet( new TLabel(_t('Groups')), '' )->class = 'tformtitle';
+        $table->addRowSet( new TLabel('Grupos'), '' )->class = 'tformtitle';
         
         // add the table inside the form
         $this->form->add($table);
@@ -44,17 +44,17 @@ class SystemGroupList extends TPage
         $row->addCell($id);
         
         $row=$table->addRow();
-        $row->addCell(new TLabel(_t('Name') . ': '));
+        $row->addCell(new TLabel('Nome' . ': '));
         $row->addCell($name);
         
         // create two action buttons to the form
         $find_button = new TButton('find');
         $new_button  = new TButton('new');
         // define the button actions
-        $find_button->setAction(new TAction(array($this, 'onSearch')), _t('Find'));
+        $find_button->setAction(new TAction(array($this, 'onSearch')), 'Buscar');
         $find_button->setImage('ico_find.png');
         
-        $new_button->setAction(new TAction(array('SystemGroupForm', 'onEdit')), _t('New'));
+        $new_button->setAction(new TAction(array('SystemGroupForm', 'onEdit')), 'Novo');
         $new_button->setImage('ico_new.png');
         
         $container = new THBox;
@@ -76,7 +76,7 @@ class SystemGroupList extends TPage
         
         // creates the datagrid columns
         $id   = new TDataGridColumn('id', 'ID', 'center');
-        $name = new TDataGridColumn('name', _t('Name'), 'center');
+        $name = new TDataGridColumn('name', 'Nome', 'center');
 
         // add the columns to the DataGrid
         $this->datagrid->addColumn($id);
@@ -98,12 +98,12 @@ class SystemGroupList extends TPage
 
         // creates two datagrid actions
         $action1 = new TDataGridAction(array('SystemGroupForm', 'onEdit'));
-        $action1->setLabel(_t('Edit'));
+        $action1->setLabel('Editar');
         $action1->setImage('ico_edit.png');
         $action1->setField('id');
         
         $action2 = new TDataGridAction(array($this, 'onDelete'));
-        $action2->setLabel(_t('Delete'));
+        $action2->setLabel('Deletar');
         $action2->setImage('ico_delete.png');
         $action2->setField('id');
         

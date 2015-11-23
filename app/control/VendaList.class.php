@@ -57,8 +57,8 @@ class VendaList extends TStandardList
         $this->form->setData( TSession::getValue('Venda_filter_data') );
         
         // add the search form actions
-        $this->form->addQuickAction(_t('Find'), new TAction(array($this, 'onSearch')), 'ico_find.png');
-        $this->form->addQuickAction(_t('New'),  new TAction(array('VendaForm', 'onEdit')), 'ico_new.png');
+        $this->form->addQuickAction('Buscar', new TAction(array($this, 'onSearch')), 'ico_find.png');
+        $this->form->addQuickAction('Novo',  new TAction(array('VendaForm', 'onEdit')), 'ico_new.png');
         
         // creates a DataGrid
         $this->datagrid = new TQuickGrid;
@@ -79,8 +79,8 @@ class VendaList extends TStandardList
         $delete_action = new TDataGridAction(array($this, 'onDelete'));
         
         // add the actions to the datagrid
-        $this->datagrid->addQuickAction(_t('Edit'), $edit_action, 'id', 'ico_edit.png');
-        $this->datagrid->addQuickAction(_t('Delete'), $delete_action, 'id', 'ico_delete.png');
+        $this->datagrid->addQuickAction('Editar', $edit_action, 'id', 'ico_edit.png');
+        $this->datagrid->addQuickAction('Deletar', $delete_action, 'id', 'ico_delete.png');
         
         // create the datagrid model
         $this->datagrid->createModel();

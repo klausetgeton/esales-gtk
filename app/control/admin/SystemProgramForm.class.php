@@ -18,7 +18,7 @@ class SystemProgramForm extends TStandardForm
         // creates the form
         
         $this->form = new TQuickForm('form_SystemProgram');
-        $this->form->setFormTitle(_t('Program'));
+        $this->form->setFormTitle('Programa');
         $this->form->class = 'tform'; // CSS class
         
         // defines the database
@@ -36,17 +36,17 @@ class SystemProgramForm extends TStandardForm
 
         // add the fields
         $this->form->addQuickField('ID', $id,  50);
-        $this->form->addQuickField(_t('Name') . ': ', $name,  200);
-        $this->form->addQuickField(_t('Controller') . ': ', $controller,  200);
+        $this->form->addQuickField('Nome' . ': ', $name,  200);
+        $this->form->addQuickField('Control' . ': ', $controller,  200);
 
         // validations
-        $name->addValidation(_t('Name'), new TRequiredValidator);
+        $name->addValidation('Nome', new TRequiredValidator);
         $controller->addValidation(('Controller'), new TRequiredValidator);
 
         // add form actions
-        $this->form->addQuickAction(_t('Save'), new TAction(array($this, 'onSave')), 'ico_save.png');
-        $this->form->addQuickAction(_t('New'), new TAction(array($this, 'onEdit')), 'ico_new.png');
-        $this->form->addQuickAction(_t('Back to the listing'),new TAction(array('SystemProgramList','onReload')),'ico_datagrid.png');
+        $this->form->addQuickAction('Salvar', new TAction(array($this, 'onSave')), 'ico_save.png');
+        $this->form->addQuickAction('Novo', new TAction(array($this, 'onEdit')), 'ico_new.png');
+        $this->form->addQuickAction('Voltar para listagem',new TAction(array('SystemProgramList','onReload')),'ico_datagrid.png');
 
         $container = new TTable;
         $container->style = 'width: 80%';
