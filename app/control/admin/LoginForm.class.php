@@ -40,8 +40,8 @@ class LoginForm extends TPage
         $row->addCell( new TLabel('Login') )->colspan = 2;
         $row->class='tformtitle';
 
-        $login->placeholder = _t('User');
-        $password->placeholder = _t('Password');
+        $login->placeholder = 'Usuário';
+        $password->placeholder = 'Senha';
 
         $user = '<span style="float:left;width:35px;margin-left:45px;height:35px;" class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>';
         $locker = '<span style="float:left;width:35px;margin-left:45px;height:35px;" class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>';
@@ -64,7 +64,7 @@ class LoginForm extends TPage
         // create an action button (save)
         $save_button=new TButton('save');
         // define the button action
-        $save_button->setAction(new TAction(array($this, 'onLogin')), _t('Log in'));
+        $save_button->setAction(new TAction(array($this, 'onLogin')), 'Logar');
         $save_button->class = 'btn btn-success btn-defualt';
         $save_button->style = 'margin-left:32px;width:355px;height:40px;border-radius:6px;font-size:18px';
 

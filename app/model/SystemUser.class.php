@@ -224,12 +224,12 @@ class SystemUser extends TRecord
             }
             else
             {
-                throw new Exception(_t('Wrong password'));
+                throw new Exception('Senha errada');
             }
         }
         else
         {
-            throw new Exception(_t('User not found'));
+            throw new Exception('Usuário não encontrado!');
         }
     }
     

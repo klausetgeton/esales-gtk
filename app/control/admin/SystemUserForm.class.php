@@ -22,16 +22,16 @@ class SystemUserForm extends TPage
         $table = new TTable;
         $table->style = 'width: 100%';
         
-        $table->addRowSet( new TLabel(_t('User')), '', '','' )->class = 'tformtitle';
+        $table->addRowSet( new TLabel('Usuário'), '', '','' )->class = 'tformtitle';
         
         // add the table inside the form
         $this->form->add($table);
         
         $frame_groups = new TFrame(NULL, 280);
-        $frame_groups->setLegend(_t('Groups'));
+        $frame_groups->setLegend('Grupos');
         $frame_groups->style .= ';margin: 4px';
         $frame_programs = new TFrame(NULL, 280);
-        $frame_programs->setLegend(_t('Programs'));
+        $frame_programs->setLegend('Programas');
         $frame_programs->style .= ';margin: 15px';
 
 
@@ -70,7 +70,7 @@ class SystemUserForm extends TPage
         $frontpage_name->setEditable(false);
         
         // validations
-        $name->addValidation(_t('Name'), new TRequiredValidator);
+        $name->addValidation('Nome', new TRequiredValidator);
         $login->addValidation('Login', new TRequiredValidator);
         $email->addValidation('Email', new TEmailValidator);
         $program_id->setSize(50);
@@ -79,14 +79,14 @@ class SystemUserForm extends TPage
         // configuracoes multifield
         $multifield_programs->setClass('SystemProgram');
         $multifield_programs->addField('id', 'ID',  $program_id, 60);
-        $multifield_programs->addField('name',_t('Name'), $program_name, 250);
+        $multifield_programs->addField('name','Nome', $program_name, 250);
         $multifield_programs->setOrientation('horizontal');
         
         // add a row for the field id
-        $table->addRowSet(new TLabel('ID:'),                 $id,           new TLabel(_t('Name').': '), $name);
-        $table->addRowSet(new TLabel(_t('Login').': ' ),     $login,        new TLabel(_t('Email').': '), $email);
-        $table->addRowSet(new TLabel(_t('Password').': '),   $password,     new TLabel(_t('Password confirmation').': '), $repassword);
-        $table->addRowSet(new TLabel(_t('Front page').': '), $frontpage_id, new TLabel(_t('Page name') . ': '), $frontpage_name);
+        $table->addRowSet(new TLabel('ID:'),                 $id,           new TLabel('Nome'.': '), $name);
+        $table->addRowSet(new TLabel('login'.': ' ),     $login,        new TLabel('Email'.': '), $email);
+        $table->addRowSet(new TLabel('Senha'.': '),   $password,     new TLabel('Confirmar senha'.': '), $repassword);
+        $table->addRowSet(new TLabel('Página inicial'.': '), $frontpage_id, new TLabel('Nome página' . ': '), $frontpage_name);
         
         $row=$table->addRow();
         $cell = $row->addCell($frame_groups);
@@ -98,16 +98,16 @@ class SystemUserForm extends TPage
 
         // create an action button (save)
         $save_button=new TButton('save');
-        $save_button->setAction(new TAction(array($this, 'onSave')), _t('Save'));
+        $save_button->setAction(new TAction(array($this, 'onSave')), 'Salvar');
         $save_button->setImage('ico_save.png');
         
         // create an new button (edit with no parameters)
         $new_button=new TButton('new');
-        $new_button->setAction(new TAction(array($this, 'onEdit')), _t('New'));
+        $new_button->setAction(new TAction(array($this, 'onEdit')), 'Novo');
         $new_button->setImage('ico_new.png');
         
         $list_button=new TButton('list');
-        $list_button->setAction(new TAction(array('SystemUserList','onReload')), _t('Back to the listing'));
+        $list_button->setAction(new TAction(array('SystemUserList','onReload')), 'Voltar para listagem');
         $list_button->setImage('ico_datagrid.png');
         
         // define the form fields
@@ -154,13 +154,13 @@ class SystemUserForm extends TPage
             if( ! $object->id )
             {
                 if( ! $object->password )
-                    throw new Exception(TAdiantiCoreTranslator::translate('The field ^1 is required', _t('Password')));
+                    throw new Exception(TAdiantiCoreTranslator::translate('The field ^1 is required', 'Senha'));
             }
             
             if( $object->password )
             {
                 if( $object->password != $object->repassword )
-                    throw new Exception(_t('The passwords do not match'));
+                    throw new Exception('Password incorreto!');
                 
                 $object->password = md5($object->password);
             }

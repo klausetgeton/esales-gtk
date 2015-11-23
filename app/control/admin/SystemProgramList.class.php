@@ -26,7 +26,7 @@ class SystemProgramList extends TPage
         $table = new TTable;
         $table->style = 'width:100%';
         
-        $table->addRowSet( new TLabel(_t('Programs')), '' )->class = 'tformtitle';
+        $table->addRowSet( new TLabel('Programas'), '' )->class = 'tformtitle';
 
         // add the table inside the form
         $this->form->add($table);
@@ -39,18 +39,18 @@ class SystemProgramList extends TPage
         $control->setValue(TSession::getValue('SystemProgram_control'));
         
         // add rows for the filter fields
-        $row=$table->addRowSet(new TLabel(_t('Name') . ': '), $name);
-        $row=$table->addRowSet(new TLabel(_t('Controller') . ': '), $control);
+        $row=$table->addRowSet(new TLabel('Nome' . ': '), $name);
+        $row=$table->addRowSet(new TLabel('Control' . ': '), $control);
         
         // create two action buttons to the form
         $find_button = new TButton('find');
         $new_button  = new TButton('new');
         
         // define the button actions
-        $find_button->setAction(new TAction(array($this, 'onSearch')), _t('Find'));
+        $find_button->setAction(new TAction(array($this, 'onSearch')), 'Buscar');
         $find_button->setImage('ico_find.png');
         
-        $new_button->setAction(new TAction(array('SystemProgramForm', 'onEdit')), _t('New'));
+        $new_button->setAction(new TAction(array('SystemProgramForm', 'onEdit')), 'Novo');
         $new_button->setImage('ico_new.png');
         
         // define wich are the form fields
@@ -72,8 +72,8 @@ class SystemProgramList extends TPage
         
         // creates the datagrid columns
         $id         = new TDataGridColumn('id', 'ID', 'right');
-        $name       = new TDataGridColumn('name', _t('Name'), 'left');
-        $controller = new TDataGridColumn('controller', _t('Controller'), 'left');
+        $name       = new TDataGridColumn('name', 'Nome', 'left');
+        $controller = new TDataGridColumn('controller', 'Control', 'left');
 
         // add the columns to the DataGrid
         $this->datagrid->addColumn($id);
@@ -104,12 +104,12 @@ class SystemProgramList extends TPage
 
         // creates two datagrid actions
         $action1 = new TDataGridAction(array('SystemProgramForm', 'onEdit'));
-        $action1->setLabel(_t('Edit'));
+        $action1->setLabel('Editar');
         $action1->setImage('ico_edit.png');
         $action1->setField('id');
         
         $action2 = new TDataGridAction(array($this, 'onDelete'));
-        $action2->setLabel(_t('Delete'));
+        $action2->setLabel('Deletar');
         $action2->setImage('ico_delete.png');
         $action2->setField('id');
         

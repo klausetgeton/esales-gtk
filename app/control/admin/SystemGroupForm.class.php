@@ -20,7 +20,7 @@ class SystemGroupForm extends TPage
         $table->style = 'width:100%';
         
         $frame_programs = new TFrame;
-        $frame_programs->setLegend(_t('Programs'));
+        $frame_programs->setLegend('Programas');
         
         // creates the form
         $this->form = new TForm('form_System_group');
@@ -29,7 +29,7 @@ class SystemGroupForm extends TPage
         
         // add the notebook inside the form
         $this->form->add($table);
-        $table->addRowSet( new TLabel(_t('Group')), '' )->class = 'tformtitle';
+        $table->addRowSet( new TLabel('Grupo'), '' )->class = 'tformtitle';
 
         // create the form fields
         $id              = new TEntry('id');
@@ -42,8 +42,8 @@ class SystemGroupForm extends TPage
         
         $multifield->setHeight(140);
         $multifield->setClass('SystemProgram');
-        $multifield->addField('id', _t('Program') . ' ID',  $program_id, 100, true);
-        $multifield->addField('name',_t('Name'), $program_name, 250);
+        $multifield->addField('id', 'Programa' . ' ID',  $program_id, 100, true);
+        $multifield->addField('name','Nome', $program_name, 250);
         $multifield->setOrientation('horizontal');
         
         // define the sizes
@@ -60,7 +60,7 @@ class SystemGroupForm extends TPage
 
         // add a row for the field id
         $table->addRowSet(new TLabel('ID:'), $id);
-        $table->addRowSet(new TLabel(_t('Name') . ': '), $name);
+        $table->addRowSet(new TLabel('Nome' . ': '), $name);
         
         // add a row for the field name
         $row = $table->addRow();
@@ -69,16 +69,16 @@ class SystemGroupForm extends TPage
 
         // create an action button (save)
         $save_button=new TButton('save');
-        $save_button->setAction(new TAction(array($this, 'onSave')), _t('Save'));
+        $save_button->setAction(new TAction(array($this, 'onSave')), 'Salvar');
         $save_button->setImage('ico_save.png');
         
         // create an new button (edit with no parameters)
         $new_button=new TButton('new');
-        $new_button->setAction(new TAction(array($this, 'onEdit')), _t('New'));
+        $new_button->setAction(new TAction(array($this, 'onEdit')), 'Novo');
         $new_button->setImage('ico_new.png');
         
         $list_button=new TButton('list');
-        $list_button->setAction(new TAction(array('SystemGroupList','onReload')), _t('Back to the listing'));
+        $list_button->setAction(new TAction(array('SystemGroupList','onReload')), 'Voltar para listagem');
         $list_button->setImage('ico_datagrid.png');
 
         // define the form fields
@@ -130,7 +130,7 @@ class SystemGroupForm extends TPage
             $this->form->setData($object); // fill the form with the active record data
             
             TTransaction::close(); // close the transaction
-            new TMessage('info', _t('Record saved')); // shows the success message
+            new TMessage('info', 'Registro salvo!'); // shows the success message
         }
         catch (Exception $e) // in case of exception
         {
