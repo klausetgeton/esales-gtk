@@ -62,7 +62,7 @@ class TApplication extends TCoreApplication
             $buttons[] = array(_t('Subjects'), 'SubjectList');
             $buttons[] = array(_t('Authors'), 'AuthorList');
             $buttons[] = array(_t('Publishers'), 'PublisherList');
-            $buttons[] = array(_t('Status'), 'StatusFormList');
+            $buttons[] = array(_t('Status'), 'VendaTeste');
             $buttons[] = array('<b>'._t('Members').'</b>');
             $buttons[] = array(_t('Members'), 'MemberList');
             $buttons[] = array(_t('Categories'), 'CategoryFormList');

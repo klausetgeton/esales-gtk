@@ -25,8 +25,7 @@ CREATE TABLE subject (
 INSERT INTO "subject" VALUES(1,'Education');
 INSERT INTO "subject" VALUES(2,'Computing');
 INSERT INTO "subject" VALUES(3,'Biology');
-INSERT INTO "subject" VALUES(4,'Psico
-y');
+INSERT INTO "subject" VALUES(4,'Psicology');
 INSERT INTO "subject" VALUES(5,'Physics');
 INSERT INTO "subject" VALUES(6,'History');
 INSERT INTO "subject" VALUES(7,'Romance');
