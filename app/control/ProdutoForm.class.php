@@ -54,7 +54,14 @@ class ProdutoForm extends TStandardForm
         $this->form->addQuickField('Descricao', $descricao,  200);
         $this->form->addQuickField('Preco compra', $preco_compra,  200);
         $this->form->addQuickField('Preco venda', $preco_venda,  200);
-        $this->form->addQuickFields('Marca', array($marca_id, $marca_name));
+        // $this->form->addQuickFields('Marca', array($marca_id, $marca_name));
+
+        // $table1 = new TTable;
+        // $row=$table1->addRow();
+        // $row->addCell(new TLabel('Vendedor' . ': '));
+        // $row->addCell($marca_id);
+        // $row->addCell(new TLabel('Nome'.': '));
+        // $row->addCell($marca_name);
 
 
         // create the form actions
