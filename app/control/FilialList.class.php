@@ -19,14 +19,7 @@ class FilialList extends TStandardList
         
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Filial');   // defines the active record
-        parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', 'like'); // add a filter field
-        parent::addFilterField('nome', 'like'); // add a filter field
-        parent::addFilterField('endereco', 'like'); // add a filter field
-        parent::addFilterField('numero', 'like'); // add a filter field
-        parent::addFilterField('email', 'like'); // add a filter field
-        parent::addFilterField('telefone', 'like'); // add a filter field
-        parent::addFilterField('fl_matriz', 'like'); // add a filter field
+        parent::setFilterField('nome');
         
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Filial');
@@ -43,19 +36,15 @@ class FilialList extends TStandardList
         $telefone                       = new TEntry('telefone');
         $fl_matriz                      = new TEntry('fl_matriz');
 
-
         // add the fields
         $this->form->addQuickField('id', $id,  100);
         $this->form->addQuickField('Nome', $nome,  200);
-        $this->form->addQuickField('Endereço', $endereco,  200);
-        $this->form->addQuickField('Número', $numero,  200);
+        $this->form->addQuickField('Endereco', $endereco,  200);
+        $this->form->addQuickField('Numero', $numero,  200);
         $this->form->addQuickField('Email', $email,  200);
         $this->form->addQuickField('Telefone', $telefone,  200);
         $this->form->addQuickField('Matriz', $fl_matriz,  200);
 
-
-
-        
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue('Filial_filter_data') );
         
@@ -95,7 +84,10 @@ class FilialList extends TStandardList
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
         
         // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+        $container = new TVBox;
+        $container->add($this->form);
+        $container->add($this->datagrid);
+        $container->add($this->pageNavigation);
         parent::add($container);
     }
 }

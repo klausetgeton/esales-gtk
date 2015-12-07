@@ -39,17 +39,13 @@ class FilialForm extends TStandardForm
 
 
         // add the fields
-        $this->form->addQuickField('Código', $id,  100);
+        $this->form->addQuickField('Codigo', $id,  100);
         $this->form->addQuickField('Nome', $nome,  200, new TRequiredValidator );
         $this->form->addQuickField('Endereco', $endereco,  200);
-        $this->form->addQuickField('Número', $numero,  200);
+        $this->form->addQuickField('Numero', $numero,  200);
         $this->form->addQuickField('Email', $email,  200);
         $this->form->addQuickField('Telefone', $telefone,  200);
         $this->form->addQuickField('fl_matriz', $fl_matriz,  200);
-
-
-
-
         
         // create the form actions
         $this->form->addQuickAction('Salvar', new TAction(array($this, 'onSave')), 'ico_save.png');

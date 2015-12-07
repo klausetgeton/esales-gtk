@@ -13,6 +13,7 @@ class Compra extends TRecord
     private $pessoa;
     private $saida;
     private $filial;
+    private $produtos;
 
     /**
      * Constructor method
@@ -21,12 +22,106 @@ class Compra extends TRecord
     {
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('vendedor_id');
-        parent::addAttribute('cliente_id');
+        parent::addAttribute('comprador_id');
         parent::addAttribute('filial_id');
-        parent::addAttribute('data');
-        parent::addAttribute('saida_id');
+        parent::addAttribute('data_compra');
     }
 
+        /**
+     * Reset aggregates
+     */
+    public function clearParts()
+    {
+        $this->produtos    = array();
+    }
+
+    /**
+     * Composition with Item
+     */
+    public function addProduto(Produto $produto)
+    {
+        $this->produtos[] = $produto;
+    }
+
+    /**
+     * Load the object and the aggregates
+     */
+    public function load($id)
+    {
+        $produto_rep      = new TRepository('Produto');
+        
+        $criteria = new TCriteria;
+        $criteria->add(new TFilter('id', '=', $id));
+     
+        // load the Item composition
+        $produtos = $produto_rep->load($criteria);
+        if ($produtos)
+        {
+            foreach ($produtos as $produto)
+            {
+                $this->addProduto($produto);
+            }
+        }
+        
+        // load the object itself
+        return parent::load($id);
+    }
+
+    /**
+     * Stores the book and the aggregates (authors, subjects, items)
+     */
+    public function store()
+    {
+        // stores the Book
+        parent::store();
+        
+        // store the items
+        if ($this->produtos)
+        {
+            foreach ($this->produtos as $produto)
+            {
+                $venda_produto = new CompraItem;
+                $venda_produto-> compra_id   = $this-> id;
+                $venda_produto-> produto_id = $produto-> id;
+                $venda_produto->store();
+            }
+        }
+
+        // // store the authors
+        // if ($this->authors)
+        // {
+        //     foreach ($this->authors as $author)
+        //     {
+        //         $book_author = new BookAuthor;
+        //         $book_author-> book_id    = $this-> id;
+        //         $book_author-> author_id  = $author-> id;
+        //         $book_author->store();
+        //     }
+        // }
+
+
+    }
+
+    /**
+     * Delete the book and its aggregates
+     */
+    public function delete($id = NULL)
+    {
+        $id = isset($id) ? $id : $this->{'id'};
+        
+        $criteria = new TCriteria;
+        $criteria->add(new TFilter('book_id', '=', $id));
+        
+        $repository = new TRepository('BookAuthor');
+        $repository->delete($criteria);
+        $repository = new TRepository('BookSubject');
+        $repository->delete($criteria);
+        $repository = new TRepository('Item');
+        $repository->delete($criteria);
+        
+        // delete the object itself
+        parent::delete($id);
+    }
     
     /**
      * Method set_pessoa
