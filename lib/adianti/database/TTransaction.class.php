@@ -48,13 +48,17 @@ final class TTransaction
         self::$database[self::$counter] = $database;
         
         $driver = self::$conn[self::$counter]->getAttribute(PDO::ATTR_DRIVER_NAME);
-        if ($driver !== 'dblib')
-        {
+        // if ($driver !== 'dblib')
+        // {
             // begins transaction
             self::$conn[self::$counter]->beginTransaction();
-        }
+        // }
         // turn OFF the log
-        self::$logger[self::$counter] = NULL;
+        // self::$logger[self::$counter] = NULL;
+
+
+            TTransaction::setLogger(new LoggerSQL("log-modificacoes"));
+
     }
     
     /**

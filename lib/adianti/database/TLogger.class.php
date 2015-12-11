@@ -20,7 +20,7 @@ abstract class TLogger
     {
         $this->filename = $filename;
         // clear the file contents
-        file_put_contents($filename, '');
+        // file_put_contents($filename, '');
     }
     
     // force method rewrite in child classes
