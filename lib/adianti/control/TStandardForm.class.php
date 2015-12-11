@@ -35,7 +35,7 @@ class TStandardForm extends TPage
         }
         else
         {
-            throw new Exception(TAdiantiCoreTranslator::translate('The class ^1 must be subclass of ^2', $activeRecord, 'TRecord'));
+            throw new MyException(TAdiantiCoreTranslator::translate('The class ^1 must be subclass of ^2', $activeRecord, 'TRecord'));
         }
     }
     
@@ -72,6 +72,8 @@ class TStandardForm extends TPage
         }
         catch (Exception $e) // in case of exception
         {
+            LogException::log($e->getMessage());  
+
             // get the form data
             $object = $this->form->getData($this->activeRecord);
             
@@ -121,6 +123,8 @@ class TStandardForm extends TPage
         }
         catch (Exception $e) // in case of exception
         {
+            LogException::log($e->getMessage());
+
             // shows the exception error message
             new TMessage('error', '<b>Error</b> ' . $e->getMessage());
             // undo all pending operations
