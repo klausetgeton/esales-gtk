@@ -150,7 +150,7 @@ class VendasReport extends TPage
             // get the form data into an active record Member
             $object = $this->form->getData();
 
-            $SQL = " SELECT *, date(data_venda) as dt_venda_formatada FROM venda WHERE 1=1 ";
+            $SQL = " SELECT * FROM v_vendas WHERE 1=1 ";
 
             if ($object->comprador_id)
             {
@@ -164,12 +164,12 @@ class VendasReport extends TPage
 
             if ($object->data_inicial)
             {
-                $SQL .= " and (data_venda) >= '{$object->data_inicial}'";
+                $SQL .= " and dt_venda_formatada >= '{$object->data_inicial}'";
             }
 
             if ($object->data_final)
             {
-                $SQL .= " and date(data_venda) <= '{$object->data_final}'";
+                $SQL .= " and dt_venda_formatada <= '{$object->data_final}'";
             }
 
             // execute the query
@@ -198,7 +198,7 @@ class VendasReport extends TPage
             
             if ($objetos)
             {
-                $widths = array(40, 150, 80, 140);
+                $widths = array(40, 150, 80, 80, 140);
                 
                 switch ($format)
                 {
@@ -230,6 +230,7 @@ class VendasReport extends TPage
                 $tr->addCell('Codigo',        'left', 'title');
                 $tr->addCell('Vendedor',      'left', 'title');
                 $tr->addCell('Comprador',     'left', 'title');
+                $tr->addCell('Filial',        'left', 'title');
                 $tr->addCell('Data Venda',    'left', 'title');
                 // $tr->addCell(_t('Phone'),    'left', 'title');
                 
@@ -246,9 +247,10 @@ class VendasReport extends TPage
 
                     $style = $colour ? 'datap' : 'datai';
                     $tr->addRow();
-                    $tr->addCell($objeto->id,                      'left', $style);
-                    $tr->addCell($vendedor->nome,                  'left', $style);
-                    $tr->addCell($comprador->nome,                 'left', $style);
+                    $tr->addCell($objeto->venda_id,                        'left', $style);
+                    $tr->addCell($objeto->vendedor_nome,                   'left', $style);
+                    $tr->addCell($objeto->comprador_nome,                  'left', $style);
+                    $tr->addCell($objeto->filial_nome,                     'left', $style);
                     $tr->addCell($objeto->dt_venda_formatada,              'left', $style);
                     
                     $colour = !$colour;
