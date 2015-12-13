@@ -1,0 +1,13 @@
+INSERT INTO system_program (id, name, controller) values (default, 'Programas','SystemProgramList');
+INSERT INTO system_program (id, name, controller) values (default, 'Usuarios','SystemUserList');
+INSERT INTO system_program (id, name, controller) values (default, 'Grupos','SystemGroupList');
+INSERT INTO system_program (id, name, controller) values (default, 'Filial','FilialList');
+INSERT INTO system_program (id, name, controller) values (default, 'Pessoa','PessoaList');
+INSERT INTO system_program (id, name, controller) values (default, 'Marca','MarcaList');
+INSERT INTO system_program (id, name, controller) values (default, 'Produto','ProdutoList');
+INSERT INTO system_program (id, name, controller) values (default, 'Compra','CompraList');
+INSERT INTO system_program (id, name, controller) values (default, 'Venda','VendaList');
+INSERT INTO system_program (id, name, controller) values (default, 'Relatorio Vendas','VendasReport');
+INSERT INTO system_program (id, name, controller) values (default,'Admin - Programas','SystemProgramList');
+INSERT INTO system_program (id, name, controller) values (default,'Admin - Usuarios','SystemUserList');
+INSERT INTO system_program (id, name, controller) values (default,'Admin - Grupos','SystemGroupList');
