@@ -14,6 +14,8 @@ class Venda extends TRecord
     private $entrada;
     private $pessoa;
     private $produtos;
+    private $vendedor;
+    private $comprador;
 
     /**
      * Constructor method
@@ -26,6 +28,39 @@ class Venda extends TRecord
         parent::addAttribute('filial_id');
         parent::addAttribute('data_venda');
         parent::addAttribute('entrada_id');
+    }
+
+    /**
+     * Returns the book author name
+     */
+    function get_vendedor_nome()
+    {
+        if (empty($this->vendedor))
+            $this->vendedor = new Pessoa($this->vendedor_id);
+        
+        return $this->vendedor->nome;
+    }
+
+    /**
+     * Returns the book author name
+     */
+    function get_comprador_nome()
+    {
+        if (empty($this->comprador))
+            $this->comprador = new Pessoa($this->comprador_id);
+        
+        return $this->comprador->nome;
+    }
+
+    /**
+     * Returns the book author name
+     */
+    function get_filial_nome()
+    {
+        if (empty($this->filial))
+            $this->filial = new Filial($this->filial_id);
+        
+        return $this->filial->nome;
     }
 
         /**
@@ -48,28 +83,59 @@ class Venda extends TRecord
     /**
      * Composition with Item
      */
-    public function addProduto(Produto $produto)
+    public function addProduto($produto)
     {
         $this->produtos[] = $produto;
     }
 
-    /**
-     * Load the object and the aggregates
-     */
+    // /**
+    //  * Load the object and the aggregates
+    //  */
+    // public function load($id)
+    // {
+    //     $produto_rep      = new TRepository('Produto');
+        
+    //     $criteria = new TCriteria;
+    //     $criteria->add(new TFilter('id', '=', $id));
+     
+    //     // load the Item composition
+    //     $produtos = $produto_rep->load($criteria);
+    //     if ($produtos)
+    //     {
+    //         foreach ($produtos as $produto)
+    //         {
+    //             $this->addProduto($produto);
+    //         }
+    //     }
+        
+    //     // load the object itself
+    //     return parent::load($id);
+    // }
+
     public function load($id)
     {
-        $produto_rep      = new TRepository('Produto');
+        $venda_rep      = new TRepository('VendaItem');
+        $produto          = new TRepository('Produto');
         
         $criteria = new TCriteria;
-        $criteria->add(new TFilter('id', '=', $id));
+        $criteria->add(new TFilter('venda_id', '=', $id));
      
         // load the Item composition
-        $produtos = $produto_rep->load($criteria);
-        if ($produtos)
+        $vendasitens = $venda_rep->load($criteria);
+        if ($vendasitens)
         {
-            foreach ($produtos as $produto)
+            foreach ($vendasitens as $item)
             {
-                $this->addProduto($produto);
+                $criteria = new TCriteria;
+                $criteria->add(new TFilter('id', '=', $item-> produto_id));
+                $prods = new Produto;
+                $prods = $produto->load($criteria);
+                $teste = new stdClass();
+                $teste-> id = $prods[0]-> id;
+                $teste-> nome = $prods[0]-> descricao;
+                $teste-> quantidade = $item-> quantidade;
+                
+                $this->addProduto($teste);
             }
         }
         
@@ -84,6 +150,13 @@ class Venda extends TRecord
     {
         // stores the Book
         parent::store();
+
+        // // delete the aggregates
+        // $criteria = new TCriteria;
+        // $criteria->add(new TFilter('venda_id', '=', $this->id));
+        
+        // $repository = new TRepository('VendaItem');
+        // $repository->delete($criteria);
         
         // store the items
         if ($this->produtos)

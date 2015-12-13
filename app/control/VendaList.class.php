@@ -32,7 +32,7 @@ class VendaList extends TStandardList
         $vendedor_id                    = new TEntry('vendedor_id');
         $comprador_id                   = new TEntry('comprador_id');
         $filial_id                      = new TEntry('filial_id');
-        $data                           = new TEntry('data');
+        $data                           = new TEntry('data_venda');
         $entrada_id                     = new TEntry('entrada_id');
 
 
@@ -60,12 +60,11 @@ class VendaList extends TStandardList
         
 
         // creates the datagrid columns
-        $id = $this->datagrid->addQuickColumn('id', 'id', 'right', 100);
-        $vendedor_id = $this->datagrid->addQuickColumn('vendedor_id', 'vendedor_id', 'right', 100);
-        $comprador_id = $this->datagrid->addQuickColumn('comprador_id', 'comprador_id', 'right', 100);
-        $filial_id = $this->datagrid->addQuickColumn('filial_id', 'filial_id', 'right', 100);
-        $data = $this->datagrid->addQuickColumn('data', 'data', 'left', 100);
-        $entrada_id = $this->datagrid->addQuickColumn('entrada_id', 'entrada_id', 'right', 100);
+        $id = $this->datagrid->addQuickColumn('Código', 'id', 'right', 30);
+        $vendedor_id = $this->datagrid->addQuickColumn('Vendedor', 'vendedor_nome', 'right', 100);
+        $comprador_id = $this->datagrid->addQuickColumn('Comprador', 'comprador_nome', 'right', 100);
+        $filial_id = $this->datagrid->addQuickColumn('Filial', 'filial_nome', 'right', 100);
+        $data_venda = $this->datagrid->addQuickColumn('Data', 'data_venda', 'right', 100);
 
         
         // create the datagrid actions
