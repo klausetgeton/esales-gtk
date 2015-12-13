@@ -37,6 +37,15 @@ class Venda extends TRecord
     }
 
     /**
+     * Return Items composition
+     */
+    public function getProdutos()
+    {
+        return $this->produtos;
+    }
+    
+
+    /**
      * Composition with Item
      */
     public function addProduto(Produto $produto)
@@ -84,6 +93,7 @@ class Venda extends TRecord
                 $venda_produto = new VendaItem;
                 $venda_produto-> venda_id   = $this-> id;
                 $venda_produto-> produto_id = $produto-> id;
+                $venda_produto-> quantidade = $produto-> quantidade;
                 $venda_produto->store();
             }
         }
@@ -113,10 +123,6 @@ class Venda extends TRecord
         $criteria = new TCriteria;
         $criteria->add(new TFilter('book_id', '=', $id));
         
-        $repository = new TRepository('BookAuthor');
-        $repository->delete($criteria);
-        $repository = new TRepository('BookSubject');
-        $repository->delete($criteria);
         $repository = new TRepository('Item');
         $repository->delete($criteria);
         

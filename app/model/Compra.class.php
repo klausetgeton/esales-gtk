@@ -83,6 +83,7 @@ class Compra extends TRecord
                 $venda_produto = new CompraItem;
                 $venda_produto-> compra_id   = $this-> id;
                 $venda_produto-> produto_id = $produto-> id;
+                $venda_produto-> quantidade = $produto-> quantidade;
                 $venda_produto->store();
             }
         }

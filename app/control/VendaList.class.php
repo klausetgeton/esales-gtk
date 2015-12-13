@@ -20,12 +20,6 @@ class VendaList extends TStandardList
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Venda');   // defines the active record
         parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', 'like'); // add a filter field
-        parent::addFilterField('vendedor_id', 'like'); // add a filter field
-        parent::addFilterField('comprador_id', 'like'); // add a filter field
-        parent::addFilterField('filial_id', 'like'); // add a filter field
-        parent::addFilterField('data', 'like'); // add a filter field
-        parent::addFilterField('entrada_id', 'like'); // add a filter field
         
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Venda');
@@ -89,9 +83,13 @@ class VendaList extends TStandardList
         $this->pageNavigation = new TPageNavigation;
         $this->pageNavigation->setAction(new TAction(array($this, 'onReload')));
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
-        
-        // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+
+         // create the page container
+        $container = new TVBox;
+        $container->add($this->form);
+        $container->add($this->datagrid);
+        $container->add($this->pageNavigation);
         parent::add($container);
+
     }
 }

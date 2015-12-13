@@ -41,7 +41,8 @@ class VendaForm extends TPage
         // creates a table
         $table1 = new TTable;
         $table2 = new TTable;
-        // $table3 = new TTable;
+
+        $table3 = new TTable;
         // $table4 = new TTable;
         
         $notebook = new TNotebook(600, 430);
@@ -51,7 +52,6 @@ class VendaForm extends TPage
         $notebook->appendPage(_t('Items'), $table4);*/
         
         // add the table inside the form
-        $this->form->add($notebook);
         
         // create the form fields
         $id                             = new TEntry('id');
@@ -209,7 +209,7 @@ class VendaForm extends TPage
         $produtos_teste = new TMultiField('produtos_list');
         $produto_id   = new TSeekButton('id');
         $produto_nome = new TEntry('nome');
-        // $produto_quantidade = new TEntry('quantidade');
+        $produto_quantidade = new TEntry('quantidade');
         $produto_nome->setEditable(FALSE);
         $produto_id->setSize(50);
         $produto_nome->setSize(300);
@@ -226,8 +226,8 @@ class VendaForm extends TPage
         $produtos_teste->setHeight(250);
         $produtos_teste->setClass('Produto');
         $produtos_teste->addField('id',   'Produto', $produto_id,   50);
-        $produtos_teste->addField('nome', 'Nome',   $produto_nome, 400);
-        // $produtos_teste->addField('quantidade', 'Quantidade',   $produto_quantidade, 50);
+        $produtos_teste->addField('nome', 'Nome',   $produto_nome, 300);
+        $produtos_teste->addField('quantidade', 'Quantidade',   $produto_quantidade, 50);
         
         $row=$table2->addRow();
         $row->addCell($l=new TLabel('Produtos'));
@@ -314,12 +314,18 @@ class VendaForm extends TPage
         // create an action button (save)
         $save_button=new TButton('save');
         // define the button action
-        $save_button->setAction(new TAction(array($this, 'onSave')), _t('Save'));
+        $save_button->setAction(new TAction(array($this, 'save')), _t('Save'));
         $save_button->setImage('ico_save.png');
 
-        // add a row for the form action
-        $row=$table1->addRow();
+        // // add a row for the form action
+        $row=$table2->addRow();
         $row->addCell($save_button);
+
+        // // add a row for the form action
+        // $row=$table3->addRow();
+        // $row->addCell($save_button);
+
+        $this->form->add($notebook);
 
         // define wich are the form fields
         $this->form->setFields(array($id,$vendedor_id,$vendedor_nome, $comprador_id, $comprador_nome, $filial_id, $filial_nome, $produtos_teste, $save_button));
@@ -327,6 +333,32 @@ class VendaForm extends TPage
         
         // add the form to the page
         parent::add($this->form);
+    }
+
+    function save()
+    {
+        $object = $this->form->getData('Compra');
+        TTransaction::open('esales');
+        $soma = '';
+        // add Item composition
+        if ($object->produtos_list)
+        {
+            foreach ($object->produtos_list as $produto)
+            {
+                $object->addProduto($produto);
+                $prod = new Produto($produto->id);
+                $soma += $prod->preco_venda * $produto->quantidade;
+            }
+        }
+        TTransaction::close();
+
+        // define two actions
+        $action = new TAction(array($this, 'onSave'));
+        
+        // // define the action parameters
+        // $action->setParameter('key', $key);
+
+        new TQuestion('O valor da venda é de : R$' . $soma . ' deseja finalizar a venda?', $action);
     }
 
     /**
@@ -344,24 +376,6 @@ class VendaForm extends TPage
             $object = $this->form->getData('Venda');
             // clear aggregates
             $object->clearParts();
-            
-            // // add Author aggregates
-            // if ($object->author_list)
-            // {
-            //     foreach ($object->author_list as $author)
-            //     {
-            //         $object->addAuthor($author);
-            //     }
-            // }
-            
-            // // add Subject aggregates
-            // if ($object->subject_list)
-            // {
-            //     foreach ($object->subject_list as $subject)
-            //     {
-            //         $object->addSubject($subject);
-            //     }
-            // }
             
             // add Item composition
             if ($object->produtos_list)
@@ -418,9 +432,7 @@ class VendaForm extends TPage
                 $object = new Venda($key);
                 
                 // load the aggregates into the multifield field
-                $object->author_list  = $object->getAuthors();
-                $object->subject_list = $object->getSubjects();
-                $object->item_list    = $object->getItems();
+                $object->produto_list    = $object->getProdutos();
                 
                 // fill the form with the active record data
                 $this->form->setData($object);
