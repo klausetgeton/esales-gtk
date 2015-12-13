@@ -120,6 +120,8 @@ class TApplication extends TCoreApplication
         $buttons[] = array('Filial','FilialList');
         $buttons[] = array('Marca','MarcaList');
         $buttons[] = array('Produto','ProdutoList');
+        $buttons[] = array('Compra','CompraForm');
+        $buttons[] = array('Venda','VendaList');
 
 
         // $buttons[] = array('Pessoa','PessoaList');
@@ -132,19 +134,19 @@ class TApplication extends TCoreApplication
         /////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////
 
-        TTransaction::open('esales');
+        // TTransaction::open('esales');
 
-        $usuario = new SystemUser(1);
-        $programas = $usuario->getProgramas();
+        // $usuario = new SystemUser(1);
+        // $programas = $usuario->getProgramas();
 
-        $buttons[] = array('<b>Permissoes</b>');
+        // $buttons[] = array('<b>Permissoes</b>');
 
-        foreach ($programas as $name => $controller)
-        {
-            $buttons[] = array($name, $controller);
-        }
+        // foreach ($programas as $name => $controller)
+        // {
+        //     $buttons[] = array($name, $controller);
+        // }
 
-        TTransaction::close();
+        // TTransaction::close();
 
 
         /////////////////////////////////////////////////////////////////////////////////////////////
