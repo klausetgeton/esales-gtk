@@ -151,22 +151,33 @@ class Venda extends TRecord
         // stores the Book
         parent::store();
 
-        // // delete the aggregates
-        // $criteria = new TCriteria;
-        // $criteria->add(new TFilter('venda_id', '=', $this->id));
+        // delete the aggregates
+        $criteria = new TCriteria;
+        $criteria->add(new TFilter('venda_id', '=', $this->id));
         
-        // $repository = new TRepository('VendaItem');
-        // $repository->delete($criteria);
+        $repository = new TRepository('VendaItem');
+        $repository->delete($criteria);
         
         // store the items
         if ($this->produtos)
         {
             foreach ($this->produtos as $produto)
             {
+                $prod = new Produto($produto-> id);
                 $venda_produto = new VendaItem;
                 $venda_produto-> venda_id   = $this-> id;
                 $venda_produto-> produto_id = $produto-> id;
                 $venda_produto-> quantidade = $produto-> quantidade;
+                $estoque = $prod-> quantidade;
+
+                $prod-> quantidade = $prod-> quantidade - $venda_produto-> quantidade;
+
+                if($prod-> quantidade < 0)
+                {
+                    throw new Exception("Quantidade não disponível para venda, disponível :" . $estoque);
+                }
+
+                $prod->store();
                 $venda_produto->store();
             }
         }
