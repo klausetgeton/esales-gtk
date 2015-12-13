@@ -16,11 +16,11 @@ class TApplication extends TCoreApplication
     function __construct()
     {
         parent::__construct();
-        parent::set_title('Adianti Framework :: Library');
+        parent::set_title(':: ESales ::');
         $this->content = new GtkFixed;
 
         $vbox = new GtkVBox;
-        $vbox->pack_start(GtkImage::new_from_file('app/images/pageheader-gtk.png'), false, false);
+        // $vbox->pack_start(GtkImage::new_from_file('app/images/pageheader-gtk.png'), false, false);
         
         $hbox=new GtkHBox;
         $vbox->pack_start($hbox, true, true);
@@ -58,22 +58,32 @@ class TApplication extends TCoreApplication
             $buttons[] = array('<b>'._t('Cataloging').'</b>');
             $buttons[] = array(_t('Books'), 'BookList');
             $buttons[] = array(_t('Collections'), 'CollectionFormList');
-            $buttons[] = array(_t('Classifications'), 'ClassificationFormList');
-            $buttons[] = array(_t('Subjects'), 'SubjectList');
-            $buttons[] = array(_t('Authors'), 'AuthorList');
-            $buttons[] = array(_t('Publishers'), 'PublisherList');
-            $buttons[] = array(_t('Status'), 'VendaTeste');
-            $buttons[] = array('<b>'._t('Members').'</b>');
-            $buttons[] = array(_t('Members'), 'MemberList');
-            $buttons[] = array(_t('Categories'), 'CategoryFormList');
-            $buttons[] = array(_t('Cities'), 'CityList');
-            $buttons[] = array('<b>'._t('Circulation').'</b>');
-            $buttons[] = array(_t('Check in'), 'CheckInForm');
-            $buttons[] = array(_t('Check out'), 'CheckOutForm');
-            $buttons[] = array('<b>'._t('Reports').'</b>');
-            $buttons[] = array(_t('Loans'), 'LoanReport');
-            $buttons[] = array(_t('Member'), 'MemberReport');
-            $buttons[] = array(_t('Books'), 'BookReport');
+            // $buttons[] = array(_t('Classifications'), 'ClassificationFormList');
+            // $buttons[] = array(_t('Subjects'), 'SubjectList');
+            // $buttons[] = array(_t('Authors'), 'AuthorList');
+            // $buttons[] = array(_t('Publishers'), 'PublisherList');
+            // $buttons[] = array(_t('Status'), 'VendaTeste');
+            // $buttons[] = array('<b>'._t('Members').'</b>');
+            // $buttons[] = array(_t('Members'), 'MemberList');
+            // $buttons[] = array(_t('Categories'), 'CategoryFormList');
+            // $buttons[] = array(_t('Cities'), 'CityList');
+            // $buttons[] = array('<b>'._t('Circulation').'</b>');
+            // $buttons[] = array(_t('Check in'), 'CheckInForm');
+            // $buttons[] = array(_t('Check out'), 'CheckOutForm');
+            // $buttons[] = array('<b>'._t('Reports').'</b>');
+            // $buttons[] = array(_t('Loans'), 'LoanReport');
+            // $buttons[] = array(_t('Member'), 'MemberReport');
+            // $buttons[] = array(_t('Books'), 'BookReport');
+            // $buttons[] = array('Programas','SystemProgramList');
+            // $buttons[] = array('Grupos','CaixaList');
+            // $buttons[] = array('Usuários','SystemUserList');
+            // $buttons[] = array('Caixa','CaixaList');
+            // $buttons[] = array('Compra','CompraList');
+            // $buttons[] = array('Venda','VendaList');
+            // $buttons[] = array('Filial','FilialList');
+            // $buttons[] = array('Marca','MarcaList');
+            // $buttons[] = array('Pessoa','PessoaList');
+            // $buttons[] = array('Produto','ProdutoList');
             $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
         }
         else if ($member-> role -> mnemonic == 'OPERATOR')
@@ -101,6 +111,26 @@ class TApplication extends TCoreApplication
             $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
         }
         TTransaction::close();
+
+
+        // $criteria = new TCriteria;
+        // $criteria->add(new TFilter(''));
+
+        $buttons[] = array('<b>Sistemas</b>');
+        $buttons[] = array('Programas','SystemProgramList');
+        $buttons[] = array('Usuarios','SystemUserList');
+        $buttons[] = array('Grupos','SystemGroupList');
+
+        $buttons[] = array('Marca','MarcaList');
+        $buttons[] = array('Produto','ProdutoList');
+
+        // $buttons[] = array('Pessoa','PessoaList');
+        // $buttons[] = array('Caixa','CaixaList');
+        // $buttons[] = array('Compra','CompraList');
+        // $buttons[] = array('Venda','VendaList');
+
+        // Nao tem form para cadastrar
+        // $buttons[] = array('Filial','FilialList');
         
         $vbox_buttons = new GtkVBox(FALSE, 0);
         $this->scroll->add_with_viewport($vbox_buttons);
