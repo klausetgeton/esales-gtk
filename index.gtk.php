@@ -75,7 +75,7 @@ class TApplication extends TCoreApplication
         $buttons[] = array('Pessoa','PessoaList');
         $buttons[] = array('Marca','MarcaList');
         $buttons[] = array('Produto','ProdutoList');
-        $buttons[] = array('Compra','CompraForm');
+        $buttons[] = array('Compra','CompraList');
         $buttons[] = array('Venda','VendaList');
 
         $buttons[] = array('<b>Relatorios</b>');

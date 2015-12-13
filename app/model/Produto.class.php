@@ -19,6 +19,7 @@ class Produto extends TRecord
     {
         parent::__construct($id, $callObjectLoad);
         parent::addAttribute('descricao');
+        parent::addAttribute('quantidade');
         parent::addAttribute('preco_compra');
         parent::addAttribute('preco_venda');
         parent::addAttribute('marca_id');
