@@ -154,15 +154,11 @@ class Compra extends TRecord
         {
             foreach ($this->produtos as $produto)
             {
-                $prod = new Produto($produto-> id);
                 $venda_produto = new CompraItem;
                 $venda_produto-> compra_id   = $this-> id;
                 $venda_produto-> produto_id = $produto-> id;
                 $venda_produto-> quantidade = $produto-> quantidade;
 
-                $prod-> quantidade = $prod-> quantidade + $venda_produto-> quantidade;
-
-                $prod->store();
                 $venda_produto->store();
             }
         }
