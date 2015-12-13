@@ -133,6 +133,7 @@ class Compra extends TRecord
                 $teste-> nome = $prods[0]-> descricao;
                 $teste-> quantidade = $item-> quantidade;
                 
+                //$prod->store();
                 $this->addProduto($teste);
             }
         }
@@ -159,6 +160,12 @@ class Compra extends TRecord
                 $venda_produto-> produto_id = $produto-> id;
                 $venda_produto-> quantidade = $produto-> quantidade;
 
+<<<<<<< HEAD
+=======
+                $prod-> quantidade = $prod-> quantidade + $venda_produto-> quantidade;
+
+                // $prod->store();
+>>>>>>> 234dc9cd80a86f1e228ee5fb0a839a735e3d1f03
                 $venda_produto->store();
             }
         }

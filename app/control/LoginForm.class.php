@@ -57,9 +57,9 @@ class LoginForm extends TPage
         $row->addCell($pass);
         
         // adiciona uma linha para o campo
-        $row=$table->addRow();
-        $row->addCell(new TLabel(_t('Language').':'));
-        $row->addCell($lang);
+        // $row=$table->addRow();
+        // $row->addCell(new TLabel(_t('Language').':'));
+        // $row->addCell($lang);
         
         // cria um botão de ação (salvar)
         $save_button=new TButton('login');
@@ -86,18 +86,18 @@ class LoginForm extends TPage
     {
         try
         {
-            TTransaction::open('library');
+            TTransaction::open('esales');
             $data = $this->form->getData('StdClass');
             
             // validate form data
             $this->form->validate();
             
-            $language = ($data-> language) ? $data-> language : 'en';
+            $language = ($data-> language) ? $data-> language : 'pt';
             
             TAdiantiCoreTranslator::setLanguage($language);
             TApplicationTranslator::setLanguage($language);
             
-            $auth = User::autenticate($data->{'user'}, $data->{'password'} );
+            $auth = SystemUser::autenticate($data->{'user'}, $data->{'password'} );
             if ($auth)
             {
                 TSession::setValue('logged', TRUE);
