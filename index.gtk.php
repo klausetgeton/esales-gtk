@@ -113,24 +113,47 @@ class TApplication extends TCoreApplication
         TTransaction::close();
 
 
-        // $criteria = new TCriteria;
-        // $criteria->add(new TFilter(''));
-
         $buttons[] = array('<b>Sistemas</b>');
         $buttons[] = array('Programas','SystemProgramList');
         $buttons[] = array('Usuarios','SystemUserList');
         $buttons[] = array('Grupos','SystemGroupList');
-
+        $buttons[] = array('Filial','FilialList');
         $buttons[] = array('Marca','MarcaList');
         $buttons[] = array('Produto','ProdutoList');
+
 
         // $buttons[] = array('Pessoa','PessoaList');
         // $buttons[] = array('Caixa','CaixaList');
         // $buttons[] = array('Compra','CompraList');
         // $buttons[] = array('Venda','VendaList');
 
+
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////
+
+        TTransaction::open('esales');
+
+        $usuario = new SystemUser(1);
+        $programas = $usuario->getProgramas();
+
+        $buttons[] = array('<b>Permissoes</b>');
+
+        foreach ($programas as $name => $controller)
+        {
+            $buttons[] = array($name, $controller);
+        }
+
+        TTransaction::close();
+
+
+        /////////////////////////////////////////////////////////////////////////////////////////////
+       
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////
+
+
         // Nao tem form para cadastrar
-        // $buttons[] = array('Filial','FilialList');
         
         $vbox_buttons = new GtkVBox(FALSE, 0);
         $this->scroll->add_with_viewport($vbox_buttons);
