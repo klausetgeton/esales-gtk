@@ -20,16 +20,16 @@ class PessoaList extends TStandardList
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Pessoa');   // defines the active record
         parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', 'like'); // add a filter field
-        parent::addFilterField('nome', 'like'); // add a filter field
-        parent::addFilterField('telefone', 'like'); // add a filter field
-        parent::addFilterField('email', 'like'); // add a filter field
-        parent::addFilterField('endereco', 'like'); // add a filter field
-        parent::addFilterField('numero', 'like'); // add a filter field
-        parent::addFilterField('cidade_id', 'like'); // add a filter field
-        parent::addFilterField('cep', 'like'); // add a filter field
-        parent::addFilterField('cpf_cnpj', 'like'); // add a filter field
-        parent::addFilterField('tipo_pessoa', 'like'); // add a filter field
+        // parent::addFilterField('id', 'like'); // add a filter field
+        // parent::addFilterField('nome', 'like'); // add a filter field
+        // parent::addFilterField('telefone', 'like'); // add a filter field
+        // parent::addFilterField('email', 'like'); // add a filter field
+        // parent::addFilterField('endereco', 'like'); // add a filter field
+        // parent::addFilterField('numero', 'like'); // add a filter field
+        // parent::addFilterField('cidade_id', 'like'); // add a filter field
+        // parent::addFilterField('cep', 'like'); // add a filter field
+        // parent::addFilterField('cpf_cnpj', 'like'); // add a filter field
+        // parent::addFilterField('tipo_pessoa', 'like'); // add a filter field
         
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Pessoa');
@@ -82,8 +82,8 @@ class PessoaList extends TStandardList
         $nome = $this->datagrid->addQuickColumn('Nome', 'nome', 'left', 200);
         $telefone = $this->datagrid->addQuickColumn('Telefone', 'telefone', 'left', 200);
         $email = $this->datagrid->addQuickColumn('Email', 'email', 'left', 200);
-        $endereco = $this->datagrid->addQuickColumn('Endereço', 'endereco', 'left', 200);
-        $numero = $this->datagrid->addQuickColumn('Número', 'numero', 'left', 200);
+        $endereco = $this->datagrid->addQuickColumn('Endereco', 'endereco', 'left', 200);
+        $numero = $this->datagrid->addQuickColumn('Numero', 'numero', 'left', 200);
         $cidade_id = $this->datagrid->addQuickColumn('Cidade', 'cidade_id', 'right', 100);
         $cep = $this->datagrid->addQuickColumn('CEP', 'cep', 'left', 200);
         $cpf_cnpj = $this->datagrid->addQuickColumn('Cpf/Cnpj', 'cpf_cnpj', 'right', 100);
@@ -107,7 +107,10 @@ class PessoaList extends TStandardList
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
         
         // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+        $container = new TVBox;
+        $container->add($this->form);
+        $container->add($this->datagrid);
+        $container->add($this->pageNavigation);
         parent::add($container);
     }
 }

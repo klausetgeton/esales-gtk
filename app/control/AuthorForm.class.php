@@ -55,7 +55,7 @@ class AuthorForm extends TStandardForm
         
         // define the sizes
         $this->form->addQuickField(_t('Code'), $id,  100);
-        $this->form->addQuickField(_t('Name'), $name,  200);
+        $this->form->addQuickField(_t('Name'), $name,  200, new TRequiredValidator);
 
         // define the form action
         $this->form->addQuickAction(_t('Save'), new TAction(array($this, 'onSave')), 'ico_save.png');
