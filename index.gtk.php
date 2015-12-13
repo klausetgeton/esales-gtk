@@ -113,16 +113,21 @@ class TApplication extends TCoreApplication
         TTransaction::close();
 
 
-        $buttons[] = array('<b>Sistemas</b>');
+        $buttons[] = array('<b>Administrativo</b>');
         $buttons[] = array('Programas','SystemProgramList');
         $buttons[] = array('Usuarios','SystemUserList');
         $buttons[] = array('Grupos','SystemGroupList');
         $buttons[] = array('Filial','FilialList');
+
+        $buttons[] = array('<b>Operacional</b>');
+        $buttons[] = array('Pessoa','PessoaList');
         $buttons[] = array('Marca','MarcaList');
         $buttons[] = array('Produto','ProdutoList');
         $buttons[] = array('Compra','CompraForm');
         $buttons[] = array('Venda','VendaList');
 
+        $buttons[] = array('<b>Relatorios</b>');
+        $buttons[] = array('Relatorio Vendas','VendasReport');
 
         // $buttons[] = array('Pessoa','PessoaList');
         // $buttons[] = array('Caixa','CaixaList');
