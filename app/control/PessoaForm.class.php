@@ -63,11 +63,9 @@ class PessoaForm extends TStandardForm
         $this->form->addQuickField('Nome', $nome,  200);
         $this->form->addQuickField('Telefone', $telefone,  200);
         $this->form->addQuickField('Email', $email,  200);
-        $this->form->addQuickField('Endereço', $endereco,  200);
+        $this->form->addQuickField('Endereco', $endereco,  200);
         $this->form->addQuickField('Numero', $numero,  200);
-
-        $this->form->addQuickFields('Cidade', array($cidade_id, $cidade_name), true);
-
+        $this->form->addQuickField('Cidade', $cidade_id,  200);
         $this->form->addQuickField('CEP', $cep,  200);
         $this->form->addQuickField('CPF/CNPJ', $cpf_cnpj,  100);
         $this->form->addQuickField('Tipo de pessoa', $tipo_pessoa,  200);
