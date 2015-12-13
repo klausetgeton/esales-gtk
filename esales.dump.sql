@@ -2433,6 +2433,20 @@ ALTER TABLE ONLY venda
 
 
 --
+-- Name: estoque_compra_trig; Type: TRIGGER; Schema: public; Owner: postgres
+--
+
+CREATE TRIGGER estoque_compra_trig AFTER INSERT ON compra_item FOR EACH ROW EXECUTE PROCEDURE estoque_compra();
+
+
+--
+-- Name: estoque_venda_trig; Type: TRIGGER; Schema: public; Owner: postgres
+--
+
+CREATE TRIGGER estoque_venda_trig AFTER INSERT ON venda_item FOR EACH ROW EXECUTE PROCEDURE estoque_venda();
+
+
+--
 -- Name: fk_caixa_filial1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
