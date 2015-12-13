@@ -52,64 +52,16 @@ class TApplication extends TCoreApplication
         
         TTransaction::open('library');
         $member = User::newFromLogin(TSession::getValue('login'));
+        
         if ($member-> role -> mnemonic == 'LIBRARIAN')
         {
             $buttons = array();
             $buttons[] = array('<b>'._t('Cataloging').'</b>');
             $buttons[] = array(_t('Books'), 'BookList');
             $buttons[] = array(_t('Collections'), 'CollectionFormList');
-            // $buttons[] = array(_t('Classifications'), 'ClassificationFormList');
-            // $buttons[] = array(_t('Subjects'), 'SubjectList');
-            // $buttons[] = array(_t('Authors'), 'AuthorList');
-            // $buttons[] = array(_t('Publishers'), 'PublisherList');
-            // $buttons[] = array(_t('Status'), 'VendaTeste');
-            // $buttons[] = array('<b>'._t('Members').'</b>');
-            // $buttons[] = array(_t('Members'), 'MemberList');
-            // $buttons[] = array(_t('Categories'), 'CategoryFormList');
-            // $buttons[] = array(_t('Cities'), 'CityList');
-            // $buttons[] = array('<b>'._t('Circulation').'</b>');
-            // $buttons[] = array(_t('Check in'), 'CheckInForm');
-            // $buttons[] = array(_t('Check out'), 'CheckOutForm');
-            $buttons[] = array('<b>'._t('Reports').'</b>');
-            $buttons[] = array(_t('Loans'), 'LoanReport');
-            $buttons[] = array(_t('Member'), 'MemberReport');
-            $buttons[] = array(_t('Books'), 'BookReport');
-            // $buttons[] = array('Programas','SystemProgramList');
-            // $buttons[] = array('Grupos','CaixaList');
-            // $buttons[] = array('Usuários','SystemUserList');
-            // $buttons[] = array('Caixa','CaixaList');
-            // $buttons[] = array('Compra','CompraList');
-            // $buttons[] = array('Venda','VendaList');
-            // $buttons[] = array('Filial','FilialList');
-            // $buttons[] = array('Marca','MarcaList');
-            // $buttons[] = array('Pessoa','PessoaList');
-            // $buttons[] = array('Produto','ProdutoList');
             $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
         }
-        else if ($member-> role -> mnemonic == 'OPERATOR')
-        {
-            $buttons = array();
-            $buttons[] = array('<b>'._t('Members').'</b>');
-            $buttons[] = array(_t('Members'), 'MemberList');
-            $buttons[] = array(_t('Categories'), 'CategoryFormList');
-            $buttons[] = array(_t('Cities'), 'CityList');
-            $buttons[] = array('<b>'._t('Circulation').'</b>');
-            $buttons[] = array(_t('Check in'), 'CheckInForm');
-            $buttons[] = array(_t('Check out'), 'CheckOutForm');
-            $buttons[] = array('<b>'._t('Reports').'</b>');
-            $buttons[] = array(_t('Loans'), 'LoanReport');
-            $buttons[] = array(_t('Member'), 'MemberReport');
-            $buttons[] = array(_t('Books'), 'BookReport');
-            $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
-        }
-        else if ($member-> role -> mnemonic == 'ADMINISTRATOR')
-        {
-            $buttons = array();
-            $buttons[] = array('<b>'.'Admin'.'</b>');
-            $buttons[] = array(_t('Users'), 'UserList');
-            $buttons[] = array(_t('Roles'), 'RoleList');
-            $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
-        }
+        
         TTransaction::close();
 
 

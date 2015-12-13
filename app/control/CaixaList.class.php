@@ -20,11 +20,11 @@ class CaixaList extends TStandardList
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Caixa');   // defines the active record
         parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', 'like'); // add a filter field
-        parent::addFilterField('descricao', 'like'); // add a filter field
-        parent::addFilterField('pessoa_id', 'like'); // add a filter field
-        parent::addFilterField('saldo_inicial', 'like'); // add a filter field
-        parent::addFilterField('filial_id', 'like'); // add a filter field
+        // parent::addFilterField('id', 'like'); // add a filter field
+        // parent::addFilterField('descricao', 'like'); // add a filter field
+        // parent::addFilterField('pessoa_id', 'like'); // add a filter field
+        // parent::addFilterField('saldo_inicial', 'like'); // add a filter field
+        // parent::addFilterField('filial_id', 'like'); // add a filter field
         
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Caixa');
@@ -42,7 +42,7 @@ class CaixaList extends TStandardList
 
         // add the fields
         $this->form->addQuickField('id', $id,  100);
-        $this->form->addQuickField('Descrição', $descricao,  200);
+        $this->form->addQuickField('Descricao', $descricao,  200);
         $this->form->addQuickField('Pessoa', $pessoa_id,  100);
         $this->form->addQuickField('Saldo', $saldo_inicial,  200);
         $this->form->addQuickField('Filial', $filial_id,  100);
@@ -64,7 +64,7 @@ class CaixaList extends TStandardList
 
         // creates the datagrid columns
         $id = $this->datagrid->addQuickColumn('id', 'id', 'right', 100);
-        $descricao = $this->datagrid->addQuickColumn('Descrição', 'descricao', 'left', 200);
+        $descricao = $this->datagrid->addQuickColumn('Descricao', 'descricao', 'left', 200);
         $pessoa_id = $this->datagrid->addQuickColumn('Pessoa', 'pessoa_id', 'right', 100);
         $saldo_inicial = $this->datagrid->addQuickColumn('Saldo', 'saldo_inicial', 'left', 200);
         $filial_id = $this->datagrid->addQuickColumn('Filial', 'filial_id', 'right', 100);
@@ -87,7 +87,10 @@ class CaixaList extends TStandardList
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
         
         // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+        $container = new TVBox();
+        $container->add($this->form);
+        $container->add($this->datagrid);
+        $container->add($this->pageNavigation);
         parent::add($container);
     }
 }

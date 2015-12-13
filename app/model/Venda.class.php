@@ -25,7 +25,6 @@ class Venda extends TRecord
         parent::addAttribute('comprador_id');
         parent::addAttribute('filial_id');
         parent::addAttribute('data_venda');
-        parent::addAttribute('entrada_id');
     }
 
         /**
