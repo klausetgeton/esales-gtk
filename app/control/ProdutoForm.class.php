@@ -34,6 +34,7 @@ class ProdutoForm extends TStandardForm
         $preco_compra                   = new TEntry('preco_compra');
         $preco_venda                    = new TEntry('preco_venda');
         $marca_id                       = new TEntry('marca_id');
+        $quantidade                     = new TEntry('quantidade');
 
         $marca_id                      = new TSeekButton('marca_id');
         $marca_name                    = new TEntry('marca_name');
@@ -54,6 +55,7 @@ class ProdutoForm extends TStandardForm
         $this->form->addQuickField('Descricao', $descricao,  200);
         $this->form->addQuickField('Preco compra', $preco_compra,  200);
         $this->form->addQuickField('Preco venda', $preco_venda,  200);
+        $this->form->addQuickField('Quantidade', $quantidade,  200);
         // $this->form->addQuickFields('Marca', array($marca_id, $marca_name));
 
         // $table1 = new TTable;

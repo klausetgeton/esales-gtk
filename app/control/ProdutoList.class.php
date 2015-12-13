@@ -38,16 +38,12 @@ class ProdutoList extends TStandardList
         $preco_compra                   = new TEntry('preco_compra');
         $preco_venda                    = new TEntry('preco_venda');
         $marca_id                       = new TEntry('marca_id');
+        $quantidade                     = new TEntry('quantidade');
 
 
         // add the fields
         $this->form->addQuickField('id', $id,  100);
         $this->form->addQuickField('descricao', $descricao,  200);
-        $this->form->addQuickField('preco_compra', $preco_compra,  200);
-        $this->form->addQuickField('preco_venda', $preco_venda,  200);
-        $this->form->addQuickField('marca_id', $marca_id,  100);
-
-
 
         
         // keep the form filled during navigation with session data
@@ -63,11 +59,9 @@ class ProdutoList extends TStandardList
         
 
         // creates the datagrid columns
-        $id = $this->datagrid->addQuickColumn('Codigo', 'id', 'right', 100);
+        $id = $this->datagrid->addQuickColumn('Codigo', 'id', 'right', 30);
         $descricao = $this->datagrid->addQuickColumn('Descricao', 'descricao', 'left', 200);
-        $preco_compra = $this->datagrid->addQuickColumn('Preco de compra', 'preco_compra', 'left', 200);
-        $preco_venda = $this->datagrid->addQuickColumn('Preco de venda', 'preco_venda', 'left', 200);
-        $marca_id = $this->datagrid->addQuickColumn('Marca', 'marca_id', 'right', 100);
+        $quantidade = $this->datagrid->addQuickColumn('Quantidade', 'quantidade', 'right', 60);
 
         
         // create the datagrid actions

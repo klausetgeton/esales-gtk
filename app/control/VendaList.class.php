@@ -64,7 +64,7 @@ class VendaList extends TStandardList
         $vendedor_id = $this->datagrid->addQuickColumn('Vendedor', 'vendedor_nome', 'right', 100);
         $comprador_id = $this->datagrid->addQuickColumn('Comprador', 'comprador_nome', 'right', 100);
         $filial_id = $this->datagrid->addQuickColumn('Filial', 'filial_nome', 'right', 100);
-        $data_venda = $this->datagrid->addQuickColumn('Data', 'data_venda', 'right', 100);
+        $data_venda = $this->datagrid->addQuickColumn('Data Venda', 'data_venda', 'center', 130);
 
         
         // create the datagrid actions

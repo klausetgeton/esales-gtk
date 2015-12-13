@@ -175,8 +175,7 @@ class Venda extends TRecord
                 {
                     throw new Exception("Quantidade não disponível para venda, disponível :" . $estoque);
                 }
-
-                $prod->store();
+                
                 $venda_produto->store();
             }
         }
