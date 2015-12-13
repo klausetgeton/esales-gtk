@@ -70,10 +70,10 @@ class TApplication extends TCoreApplication
             // $buttons[] = array('<b>'._t('Circulation').'</b>');
             // $buttons[] = array(_t('Check in'), 'CheckInForm');
             // $buttons[] = array(_t('Check out'), 'CheckOutForm');
-            // $buttons[] = array('<b>'._t('Reports').'</b>');
-            // $buttons[] = array(_t('Loans'), 'LoanReport');
-            // $buttons[] = array(_t('Member'), 'MemberReport');
-            // $buttons[] = array(_t('Books'), 'BookReport');
+            $buttons[] = array('<b>'._t('Reports').'</b>');
+            $buttons[] = array(_t('Loans'), 'LoanReport');
+            $buttons[] = array(_t('Member'), 'MemberReport');
+            $buttons[] = array(_t('Books'), 'BookReport');
             // $buttons[] = array('Programas','SystemProgramList');
             // $buttons[] = array('Grupos','CaixaList');
             // $buttons[] = array('Usuários','SystemUserList');
