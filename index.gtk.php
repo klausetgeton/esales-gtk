@@ -50,36 +50,36 @@ class TApplication extends TCoreApplication
             $this->scroll->remove($this->scroll->get_child());
         }
         
-        TTransaction::open('library');
-        $member = User::newFromLogin(TSession::getValue('login'));
+        // TTransaction::open('esales');
+        // $member = User::newFromLogin(TSession::getValue('login'));
         
-        if ($member-> role -> mnemonic == 'LIBRARIAN')
-        {
-            $buttons = array();
-            $buttons[] = array('<b>'._t('Cataloging').'</b>');
-            $buttons[] = array(_t('Books'), 'BookList');
-            $buttons[] = array(_t('Collections'), 'CollectionFormList');
-            $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
-        }
+        // if ($member-> role -> mnemonic == 'LIBRARIAN')
+        // {
+        //     $buttons = array();
+        //     $buttons[] = array('<b>'._t('Cataloging').'</b>');
+        //     $buttons[] = array(_t('Books'), 'BookList');
+        //     $buttons[] = array(_t('Collections'), 'CollectionFormList');
+        //     $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
+        // }
         
-        TTransaction::close();
+        // TTransaction::close();
 
 
-        $buttons[] = array('<b>Administrativo</b>');
-        $buttons[] = array('Programas','SystemProgramList');
-        $buttons[] = array('Usuarios','SystemUserList');
-        $buttons[] = array('Grupos','SystemGroupList');
-        $buttons[] = array('Filial','FilialList');
+        // $buttons[] = array('<b>Administrativo</b>');
+        // $buttons[] = array('Programas','SystemProgramList');
+        // $buttons[] = array('Usuarios','SystemUserList');
+        // $buttons[] = array('Grupos','SystemGroupList');
+        // $buttons[] = array('Filial','FilialList');
 
-        $buttons[] = array('<b>Operacional</b>');
-        $buttons[] = array('Pessoa','PessoaList');
-        $buttons[] = array('Marca','MarcaList');
-        $buttons[] = array('Produto','ProdutoList');
-        $buttons[] = array('Compra','CompraList');
-        $buttons[] = array('Venda','VendaList');
+        // $buttons[] = array('<b>Operacional</b>');
+        // $buttons[] = array('Pessoa','PessoaList');
+        // $buttons[] = array('Marca','MarcaList');
+        // $buttons[] = array('Produto','ProdutoList');
+        // $buttons[] = array('Compra','CompraList');
+        // $buttons[] = array('Venda','VendaList');
 
-        $buttons[] = array('<b>Relatorios</b>');
-        $buttons[] = array('Relatorio Vendas','VendasReport');
+        // $buttons[] = array('<b>Relatorios</b>');
+        // $buttons[] = array('Relatorio Vendas','VendasReport');
 
         // $buttons[] = array('Pessoa','PessoaList');
         // $buttons[] = array('Caixa','CaixaList');
@@ -91,19 +91,23 @@ class TApplication extends TCoreApplication
         /////////////////////////////////////////////////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////
 
-        // TTransaction::open('esales');
+        TTransaction::open('esales');
+
+
+        // User::newFromLogin(TSession::getValue('login'));
 
         // $usuario = new SystemUser(1);
-        // $programas = $usuario->getProgramas();
+        $usuario = SystemUser::newFromLogin(TSession::getValue('login'));
+        $programas = $usuario->getProgramas();
 
-        // $buttons[] = array('<b>Permissoes</b>');
+        $buttons[] = array('<b>Permissoes</b>');
 
-        // foreach ($programas as $name => $controller)
-        // {
-        //     $buttons[] = array($name, $controller);
-        // }
+        foreach ($programas as $name => $controller)
+        {
+            $buttons[] = array($name, $controller);
+        }
 
-        // TTransaction::close();
+        TTransaction::close();
 
 
         /////////////////////////////////////////////////////////////////////////////////////////////

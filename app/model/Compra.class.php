@@ -162,7 +162,7 @@ class Compra extends TRecord
 
                 $prod-> quantidade = $prod-> quantidade + $venda_produto-> quantidade;
 
-                $prod->store();
+                // $prod->store();
                 $venda_produto->store();
             }
         }
