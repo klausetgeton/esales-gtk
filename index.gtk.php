@@ -106,6 +106,8 @@ class TApplication extends TCoreApplication
         {
             $buttons[] = array($name, $controller);
         }
+        
+        $buttons[] = array('Logout', array('LoginForm', 'onLogout'));
 
         TTransaction::close();
 
