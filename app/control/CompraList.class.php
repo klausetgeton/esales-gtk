@@ -20,12 +20,7 @@ class CompraList extends TStandardList
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Compra');   // defines the active record
         parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', 'like'); // add a filter field
-        parent::addFilterField('vendedor_id', 'like'); // add a filter field
-        parent::addFilterField('cliente_id', 'like'); // add a filter field
-        parent::addFilterField('filial_id', 'like'); // add a filter field
-        parent::addFilterField('data_compra', 'like'); // add a filter field
-        
+
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Compra');
         $this->form->class = 'tform'; // CSS class
@@ -64,10 +59,10 @@ class CompraList extends TStandardList
 
         // creates the datagrid columns
         $id = $this->datagrid->addQuickColumn('id', 'id', 'right', 100);
-        $vendedor_id = $this->datagrid->addQuickColumn('Vendedor', 'vendedor_id', 'right', 100);
-        $cliente_id = $this->datagrid->addQuickColumn('Cliente', 'cliente_id', 'right', 100);
-        $filial_id = $this->datagrid->addQuickColumn('Filial', 'filial_id', 'right', 100);
-        $data_compra = $this->datagrid->addQuickColumn('Data compra', 'data_compra', 'left', 100);
+        $vendedor_id = $this->datagrid->addQuickColumn('Vendedor', 'vendedor_nome', 'right', 100);
+        $cliente_id = $this->datagrid->addQuickColumn('Cliente', 'comprador_nome', 'right', 100);
+        $filial_id = $this->datagrid->addQuickColumn('Filial', 'filial_nome', 'right', 100);
+        $data_compra = $this->datagrid->addQuickColumn('Data compra', 'data_compra', 'center', 100);
 
         
         // create the datagrid actions
@@ -86,8 +81,11 @@ class CompraList extends TStandardList
         $this->pageNavigation->setAction(new TAction(array($this, 'onReload')));
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
         
-        // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+        $container = new TVBox;
+        $container->add($this->form);
+        $container->add($this->datagrid);
+        $container->add($this->pageNavigation);
         parent::add($container);
+
     }
 }

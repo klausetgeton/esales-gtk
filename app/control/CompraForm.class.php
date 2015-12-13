@@ -425,9 +425,8 @@ class CompraForm extends TPage
                 $object = new Compra($key);
                 
                 // load the aggregates into the multifield field
-                $object->author_list  = $object->getAuthors();
-                $object->subject_list = $object->getSubjects();
-                $object->item_list    = $object->getItems();
+                $object->produtos_list    = $object->getProdutos();
+
                 
                 // fill the form with the active record data
                 $this->form->setData($object);
