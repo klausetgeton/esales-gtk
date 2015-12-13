@@ -19,12 +19,12 @@ class ProdutoList extends TStandardList
         
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Produto');   // defines the active record
-        parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', 'like'); // add a filter field
-        parent::addFilterField('descricao', 'like'); // add a filter field
-        parent::addFilterField('preco_compra', 'like'); // add a filter field
-        parent::addFilterField('preco_venda', 'like'); // add a filter field
-        parent::addFilterField('marca_id', 'like'); // add a filter field
+        // parent::setDefaultOrder('id', 'asc');         // defines the default order
+        // parent::addFilterField('id', 'like'); // add a filter field
+        // parent::addFilterField('descricao', 'like'); // add a filter field
+        // parent::addFilterField('preco_compra', 'like'); // add a filter field
+        // parent::addFilterField('preco_venda', 'like'); // add a filter field
+        // parent::addFilterField('marca_id', 'like'); // add a filter field
         
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Produto');
@@ -63,10 +63,10 @@ class ProdutoList extends TStandardList
         
 
         // creates the datagrid columns
-        $id = $this->datagrid->addQuickColumn('Código', 'id', 'right', 100);
-        $descricao = $this->datagrid->addQuickColumn('Descrição', 'descricao', 'left', 200);
-        $preco_compra = $this->datagrid->addQuickColumn('Preço de compra', 'preco_compra', 'left', 200);
-        $preco_venda = $this->datagrid->addQuickColumn('Preço de venda', 'preco_venda', 'left', 200);
+        $id = $this->datagrid->addQuickColumn('Codigo', 'id', 'right', 100);
+        $descricao = $this->datagrid->addQuickColumn('Descricao', 'descricao', 'left', 200);
+        $preco_compra = $this->datagrid->addQuickColumn('Preco de compra', 'preco_compra', 'left', 200);
+        $preco_venda = $this->datagrid->addQuickColumn('Preco de venda', 'preco_venda', 'left', 200);
         $marca_id = $this->datagrid->addQuickColumn('Marca', 'marca_id', 'right', 100);
 
         
@@ -87,7 +87,10 @@ class ProdutoList extends TStandardList
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
         
         // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+        $container = new TVBox;
+        $container->add($this->form);
+        $container->add($this->datagrid);
+        $container->add($this->pageNavigation);
         parent::add($container);
     }
 }

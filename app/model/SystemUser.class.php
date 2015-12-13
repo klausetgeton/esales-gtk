@@ -271,5 +271,25 @@ class SystemUser extends TRecord
         
         return $programs;
     }
+
+    public function getProgramas()
+    {
+        $programs = array();
+        
+        foreach( $this->getSystemUserGroups() as $group )
+        {
+            foreach( $group->getSystemPrograms() as $prog )
+            {
+                $programs[$prog->name] = $prog->controller;
+            }
+        }
+                
+        foreach( $this->getSystemUserPrograms() as $prog )
+        {
+            $programs[$prog->name] = $prog->controller;
+        }
+        
+        return $programs;
+    }
 }
 ?>

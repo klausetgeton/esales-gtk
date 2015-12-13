@@ -25,8 +25,7 @@ class MarcaForm extends TStandardForm
         
         // define the form title
         $this->form->setFormTitle('Marca');
-        
-
+    
 
         // create the form fields
         $id                             = new TEntry('id');
@@ -35,7 +34,7 @@ class MarcaForm extends TStandardForm
 
         // add the fields
         $this->form->addQuickField('id', $id,  100);
-        $this->form->addQuickField('Descrição', $descricao,  200, new TRequiredValidator );
+        $this->form->addQuickField('Descricao', $descricao,  200, new TRequiredValidator );
         
         // create the form actions
         $this->form->addQuickAction('Salvar', new TAction(array($this, 'onSave')), 'ico_save.png');

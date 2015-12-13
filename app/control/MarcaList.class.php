@@ -19,9 +19,9 @@ class MarcaList extends TStandardList
         
         parent::setDatabase('esales');            // defines the database
         parent::setActiveRecord('Marca');   // defines the active record
-        parent::setDefaultOrder('id', 'asc');         // defines the default order
-        parent::addFilterField('id', '='); // add a filter field
-        parent::addFilterField('descricao', 'ilike'); // add a filter field
+        // parent::setDefaultOrder('id', 'asc');         // defines the default order
+        // parent::addFilterField('id', '='); // add a filter field
+        // parent::addFilterField('descricao', 'ilike'); // add a filter field
         
         // creates the form, with a table inside
         $this->form = new TQuickForm('form_search_Marca');
@@ -36,10 +36,7 @@ class MarcaList extends TStandardList
 
         // add the fields
         $this->form->addQuickField('id', $id,  100);
-        $this->form->addQuickField('Descrição', $descricao,  200);
-
-
-
+        $this->form->addQuickField('Descricao', $descricao,  200);
         
         // keep the form filled during navigation with session data
         $this->form->setData( TSession::getValue('Marca_filter_data') );
@@ -55,7 +52,7 @@ class MarcaList extends TStandardList
 
         // creates the datagrid columns
         $id = $this->datagrid->addQuickColumn('id', 'id', 'right', 100);
-        $descricao = $this->datagrid->addQuickColumn('Descrição', 'descricao', 'left', 200);
+        $descricao = $this->datagrid->addQuickColumn('Descricao', 'descricao', 'left', 200);
 
         
         // create the datagrid actions
@@ -75,7 +72,11 @@ class MarcaList extends TStandardList
         $this->pageNavigation->setWidth($this->datagrid->getWidth());
         
         // create the page container
-        $container = TVBox::pack( $this->form, $this->datagrid, $this->pageNavigation);
+        $container = new TVBox;
+        $container->add($this->form);
+        $container->add($this->datagrid);
+        $container->add($this->pageNavigation);
+
         parent::add($container);
     }
 }
