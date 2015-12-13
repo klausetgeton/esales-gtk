@@ -432,7 +432,8 @@ class VendaForm extends TPage
                 $object = new Venda($key);
                 
                 // load the aggregates into the multifield field
-                $object->produto_list    = $object->getProdutos();
+                $object->produtos_list    = $object->getProdutos();
+
                 
                 // fill the form with the active record data
                 $this->form->setData($object);
